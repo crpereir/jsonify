@@ -33,3 +33,38 @@ Breakdown by file type:
     files_after_cleaning: 0
 
 ------------------------------------------------------------------------------
+
+---------------------- Processing Summary [2025-05-15 22:29:48] ----------------------
+Total initial files: 0
+Total converted files: 0
+Total unconverted files: 0
+Total files before cleaning: 0
+Total files after cleaning: 0
+Total duplicates removed: 0
+Breakdown by file type:
+  xml:
+    initial: 0
+    converted: 0
+    unconverted: 0
+    skipped: 0
+    removed_duplicates: 0
+    files_before_cleaning: 0
+    files_after_cleaning: 0
+  csv:
+    initial: 0
+    converted: 0
+    unconverted: 0
+    skipped: 0
+    removed_duplicates: 0
+    files_before_cleaning: 0
+    files_after_cleaning: 0
+  txt:
+    initial: 0
+    converted: 0
+    unconverted: 0
+    skipped: 0
+    removed_duplicates: 0
+    files_before_cleaning: 0
+    files_after_cleaning: 0
+
+------------------------------------------------------------------------------

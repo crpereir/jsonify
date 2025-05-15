@@ -31,17 +31,17 @@ Example `config.ini` snippet:
 ```ini
 [general]
 conversion_method=python
-file_type=xml, csv
+file_type=xml, csv, txt
 
 [folders]
-base_input_folder=/path/to/input/folder
-base_output_folder=/path/to/output/folder
+base_input_folder=src/jsonify/types
+base_output_folder=src/jsonify/json
 
 [log_files]
-log_file=/path/to/logs/missing_fields_log.txt
-unconverted_file=/path/to/logs/unconverted_files.txt
-processed_medications_file=/path/to/logs/drugs.txt
-processing_summary_file=/path/to/logs/summary.txt
+log_file=src/jsonify/info/missing_fields_log.txt
+unconverted_file=src/jsonify/info/unconverted_files.txt
+processed_names_file=src/jsonify/info/names.txt
+processing_summary_file=src/jsonify/info/summary.txt
 ```
 
 **Configuration Parameters:**
@@ -51,7 +51,7 @@ processing_summary_file=/path/to/logs/summary.txt
 - `base_output_folder`: Specifies the base directory where the output files will be saved.
 - `log_file`: Specifies the file path to save the log of missing fields.
 - `unconverted_file`: Specifies the file path to save the list of unconverted files.
-- `processed_medications_file`: Specifies the file path to save the list of processed drugs.
+- `processed_names_file`: Specifies the file path to save the list of processed drugs.
 - `processing_summary_file`: Specifies the file path to save the summary of the processing.
 
 ## Structure
