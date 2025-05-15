@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/jsonify/__init__.py
+src/jsonify/config_loader.py
+src/jsonify/main.py
+src/jsonify.egg-info/PKG-INFO
+src/jsonify.egg-info/SOURCES.txt
+src/jsonify.egg-info/dependency_links.txt
+src/jsonify.egg-info/entry_points.txt
+src/jsonify.egg-info/requires.txt
+src/jsonify.egg-info/top_level.txt
+src/jsonify/converter/__init__.py
+src/jsonify/converter/csv_converter.py
+src/jsonify/converter/python_converter.py
+src/jsonify/converter/xslt_converter.py

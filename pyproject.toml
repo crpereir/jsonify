@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jsonify"
+version = "0.1.0"
+description = "Convert files to JSON format"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Carolina Pereira", email = "carolinadpereira18@gmail.com" }
+]
+dependencies = [
+    "beautifulsoup4",
+    "tqdm==4.67.1",
+    "lxml",
+    "pandas",
+    "openpyxl"
+]
+requires-python = ">=3.7"
+
+[project.scripts]
+jsonify = "jsonify.main:main"
+
+[project.urls]
+Homepage = "https://github.com/crpereir/jsonify"
+Issues = "https://github.com/crpereir/jsonify/issues"

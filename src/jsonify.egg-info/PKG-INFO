@@ -1,3 +1,26 @@
+Metadata-Version: 2.4
+Name: jsonify
+Version: 0.1.0
+Summary: Convert files to JSON format
+Home-page: https://github.com/crpereir/jsonify
+Author: Carolina Pereira
+Author-email: Carolina Pereira <carolinadpereira18@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/crpereir/jsonify
+Project-URL: Issues, https://github.com/crpereir/jsonify/issues
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: beautifulsoup4
+Requires-Dist: tqdm==4.67.1
+Requires-Dist: lxml
+Requires-Dist: pandas
+Requires-Dist: openpyxl
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
 # JSONIFY
 
 A Python package to easily convert different types of files into JSON format.
@@ -79,7 +102,7 @@ jsonify/
 ## Usage
 As a command line tool:
 ```bash
-jsonify --config config.ini --input-dir path/to/input --output-dir path/to/output
+jsonify --input-dir path/to/input --output-dir path/to/output
 ```
 
 As a Python Module:
@@ -94,6 +117,6 @@ if __name__ == "__main__":
 MIT License © Carolina Pereira
 
 ## Contact
-GitHub: https://github.com/crpereir/jsonify
+GitHub: [@crpereir](https://github.com/crpereir/jsonify)
 
 
