@@ -6,6 +6,9 @@ A Python package to easily convert different types of files into JSON format.
 1. [Installation](#installation)
 2. [Configuration](#configuration)
 3. [Structure](#structure)
+4. [Usage](#usage)
+5. [License](#license)
+6. [Contact](#contact)
 
 ## Installation
 
@@ -95,5 +98,3 @@ MIT License © Carolina Pereira
 
 ## Contact
 GitHub: https://github.com/crpereir/jsonify
-
-
