@@ -5,19 +5,16 @@ from glob import glob
 
 def apply_xslt_to_xml(xslt_path, xml_path):
     try:
-        # Configurar o parser para desativar DTDs e conexões de rede
         parser = etree.XMLParser(load_dtd=False, no_network=True, resolve_entities=False)
         
-        # Carregar os arquivos XML e XSLT
         xslt_tree = etree.parse(xslt_path, parser) 
         transform = etree.XSLT(xslt_tree)
         xml_tree = etree.parse(xml_path, parser) 
         
-        # Transformar o XML com o XSLT
         result_tree = transform(xml_tree)
         return json.loads(str(result_tree))
     except Exception as e:
-        raise ValueError(f"Erro ao processar {xml_path} com XSLT: {e}")
+        raise ValueError(f"Error processing {xml_path} with XSLT: {e}")
     
 # ----------------------------------------------------------------------------------------
 
@@ -67,7 +64,7 @@ def process_folder_with_xslt(input_folder, output_folder, log_file, unconverted_
                 })
 
         except Exception as e:
-            print(f"Erro ao processar {xml_file}: {e}")
+            print(f"Error processing {xml_file}: {e}")
             unconverted_files.append(os.path.basename(xml_file))
 
     with open(log_file, 'w', encoding='utf-8') as log:

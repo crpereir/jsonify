@@ -16,7 +16,8 @@ dependencies = [
     "tqdm==4.67.1",
     "lxml",
     "pandas",
-    "openpyxl"
+    "openpyxl",
+    "pytest"
 ]
 requires-python = ">=3.7"
 

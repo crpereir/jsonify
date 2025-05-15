@@ -11,7 +11,8 @@ setup(
         'tqdm==4.67.1',
         'lxml',
         'pandas',
-        'openpyxl'
+        'openpyxl',
+        'pytest',
     ],
     entry_points={
         'console_scripts': [

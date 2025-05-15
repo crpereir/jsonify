@@ -1,5 +1,7 @@
 # Byte-compiled / cache files
 src/jsonify/__pycache__/
+src/jsonify/converter/__pycache__/
+tests/__pycache__/
 *.py[cod]
 *.pyo
 
