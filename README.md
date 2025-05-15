@@ -94,7 +94,7 @@ if __name__ == "__main__":
 ```
 
 ## License
-MIT License © Carolina Pereira
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contact
 GitHub: https://github.com/crpereir/jsonify
