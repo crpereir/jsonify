@@ -1,5 +1,5 @@
 # Byte-compiled / cache files
-__pycache__/
+src/jsonify/__pycache__/
 *.py[cod]
 *.pyo
 
@@ -29,7 +29,7 @@ htmlcov/
 # Distribution / packaging
 build/
 dist/
-*.egg-info/
+src/*.egg-info/
 .eggs/
 
 # Jupyter Notebook checkpoints
