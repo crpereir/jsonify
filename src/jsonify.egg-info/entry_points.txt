@@ -1,2 +1,0 @@
-[console_scripts]
-jsonify = jsonify.main:main
