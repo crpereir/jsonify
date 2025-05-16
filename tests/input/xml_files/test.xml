@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3">
+    <id root="12345"/>
+    <code code="A1" codeSystem="SYS" displayName="Test Drug"/>
+    <manufacturedProduct>
+        <name>TestDrugName</name>
+    </manufacturedProduct>
+    <representedOrganization>
+        <name>TestOrg</name>
+    </representedOrganization>
+    <effectiveTime value="20250101"/>
+    <ingredient>
+        <ingredientSubstance>
+            <name>Sugar</name>
+            <code code="ING1"/>
+        </ingredientSubstance>
+    </ingredient>
+    <ingredient>
+        <ingredientSubstance>
+            <name>Salt</name>
+            <code code="ING2"/>
+        </ingredientSubstance>
+    </ingredient>
+</ClinicalDocument>

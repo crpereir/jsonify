@@ -1,0 +1,25 @@
+{
+    "id": "12345",
+    "code": {
+        "code": "A1",
+        "codeSystem": "SYS",
+        "displayName": "Test Drug"
+    },
+    "name": "TestDrugName",
+    "organization": "TestOrg",
+    "effectiveTime": "20250101",
+    "ingredients": [
+        {
+            "name": "Sugar",
+            "code": "ING1"
+        },
+        {
+            "name": "Salt",
+            "code": "ING2"
+        }
+    ],
+    "indications": null,
+    "contraindications": null,
+    "warningsAndPrecautions": null,
+    "adverseReactions": null
+}

@@ -24,36 +24,6 @@ Or install locally for development:
 pip install -e .
 ```
 
-## Configuration
-The package reads input files from a specified input directory and outputs JSON files into an output directory. Configuration can be done via a config file.
-
-Example `config.ini` snippet:
-```ini
-[general]
-conversion_method=python
-file_type=xml, csv, txt
-
-[folders]
-base_input_folder=src/jsonify/types
-base_output_folder=src/jsonify/json
-
-[log_files]
-log_file=src/jsonify/info/missing_fields_log.txt
-unconverted_file=src/jsonify/info/unconverted_files.txt
-processed_names_file=src/jsonify/info/names.txt
-processing_summary_file=src/jsonify/info/summary.txt
-```
-
-**Configuration Parameters:**
-- `conversion_method`: Specifies the method to use for xml **(only)** conversion. Options are "python" or "xslt".
-- `file_type`: Specifies the file types to convert. Options are "csv", "xml".
-- `base_input_folder`: Specifies the base directory where the input files are located.
-- `base_output_folder`: Specifies the base directory where the output files will be saved.
-- `log_file`: Specifies the file path to save the log of missing fields.
-- `unconverted_file`: Specifies the file path to save the list of unconverted files.
-- `processed_names_file`: Specifies the file path to save the list of processed drugs.
-- `processing_summary_file`: Specifies the file path to save the summary of the processing.
-
 ## Structure
 The project is organized as follows:
 
@@ -66,7 +36,7 @@ jsonify/
 └── src/
     └── jsonify/
         ├── __init__.py
-        ├── config_loader.py   # Loads and parses configuration files
+        ├── config_loader.py   # Configuration manager (in-memory)
         ├── converter/         # Conversion logic for different file types
         │   ├── __init__.py
         │   ├── csv_converter.py      # CSV to JSON conversion
@@ -74,24 +44,40 @@ jsonify/
         │   ├── xslt_converter.py     # XML to JSON (XSLT method)
         ├── info/              # Folder for log and info files
         ├── json/              # Output folder for JSON files
+        ├── api.py             # API definition
         ├── main.py            # Main entry point for the package
         └── types/             # Input folder for files to convert
     └── jsonify.egg-info/      # Metadata for the installed package
 ```
 
 ## Usage
-As a command line tool:
-```bash
-jsonify --config config.ini --input-dir path/to/input --output-dir path/to/output
-```
+Use the run_conversion function to convert files programmatically:
 
-As a Python Module:
 ```python
-from jsonify.main import main
 
-if __name__ == "__main__":
-    main()
+from jsonify import run_conversion
+
+summary = run_conversion(
+    input_dir="data/input",
+    output_dir="data/output",
+    file_types=["xml", "csv", "txt"],
+    conversion_method="python",  # or "xslt"
+    log_dir="data/logs"
+)
 ```
+
+**Parameters**:
+
+`input_dir (str)`: Base folder containing subfolders for each file type (e.g. `xml_files/`, `csv_files/`).
+
+`output_dir (str)`: Base folder where the JSON output will be saved.
+
+`file_types (list of str)`: File types to convert. Supported: "xml", "csv", "txt".
+
+`conversion_method (str)`: Conversion method for XML. Either "python" or "xslt".
+
+`log_dir (str, optional)`: Directory to store logs (missing fields, unconverted files, etc.).
+
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.

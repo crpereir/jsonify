@@ -1,56 +1,49 @@
-from jsonify.converter.csv_converter import convert_file_to_json
-from jsonify.converter.python_converter import parse_xml_to_json
+import os
 import json
+from pathlib import Path
+from jsonify import run_conversion
 
-def test_convert_file_to_json(tmp_path):
-    csv_content = "Ingredient,Amount\nSugar,2\nSalt,1"
-    csv_file = tmp_path / "test.csv"
-    csv_file.write_text(csv_content, encoding="utf-8")
+def test_run_conversion_end_to_end():
+    base_path = Path(__file__).parent
 
-    output_dir = tmp_path / "out"
-    result = convert_file_to_json(str(csv_file), str(output_dir))
-    assert "files created" in result.lower()
+    input_dir = base_path / "input"
+    output_dir = base_path / "output"
+    log_dir = base_path / "logs"
 
-def test_convert_txt_to_json(tmp_path):
-    txt_content = "Ingredient~Amount\nSugar~2\nSalt~1"
-    txt_file = tmp_path / "test.txt"
-    txt_file.write_text(txt_content, encoding="utf-8")
+    for folder in ["csv_results", "xml_results", "txt_results"]:
+        output_subdir = output_dir / folder
+        if output_subdir.exists():
+            for f in output_subdir.glob("*.json"):
+                f.unlink()
 
-    output_dir = tmp_path / "out_txt"
-    result = convert_file_to_json(str(txt_file), str(output_dir), delimiter="~")
-    assert "files created" in result.lower()
+    summary = run_conversion(
+        input_dir=str(input_dir),
+        output_dir=str(output_dir),
+        file_types=["csv", "xml", "txt"],
+        conversion_method="python",
+        log_dir=str(log_dir)
+    )
 
-def test_parse_xml_to_json(tmp_path):
-    xml_content = """<?xml version="1.0"?>
-    <ClinicalDocument xmlns="urn:hl7-org:v3">
-        <id root="12345"/>
-        <code code="A1" codeSystem="SYS" displayName="Test Drug"/>
-        <manufacturedProduct>
-            <name>TestDrugName</name>
-        </manufacturedProduct>
-        <representedOrganization>
-            <name>TestOrg</name>
-        </representedOrganization>
-        <effectiveTime value="20250101"/>
-        <ingredient>
-            <ingredientSubstance>
-                <name>Sugar</name>
-                <code code="ING1"/>
-            </ingredientSubstance>
-        </ingredient>
-        <ingredient>
-            <ingredientSubstance>
-                <name>Salt</name>
-                <code code="ING2"/>
-            </ingredientSubstance>
-        </ingredient>
-    </ClinicalDocument>
-    """
-    xml_file = tmp_path / "test.xml"
-    xml_file.write_text(xml_content, encoding="utf-8")
+    assert summary["Total converted files"] >= 3
 
-    data = parse_xml_to_json(str(xml_file))
-    assert data["name"] == "TestDrugName"
-    assert data["organization"] == "TestOrg"
-    assert data["ingredients"][0]["name"] == "Sugar"
-    assert data["ingredients"][1]["name"] == "Salt"
+    csv_output = output_dir / "csv_results"
+    assert any(f.suffix == ".json" for f in csv_output.glob("*")), "No CSV JSON output found"
+
+    xml_output = output_dir / "xml_results" / "test.json"
+    assert xml_output.exists(), "XML output file not created"
+    with open(xml_output, encoding="utf-8") as f:
+        data = json.load(f)
+        assert data.get("name") == "TestDrugName"
+
+    txt_output = output_dir / "txt_results"
+    txt_files = list(txt_output.glob("*.json"))
+    assert len(txt_files) == 2, "Expected 2 TXT JSON files"
+
+    for log_file in [
+        "missing_fields_log.txt",
+        "unconverted_files.txt",
+        "summary.txt",
+        "names.txt"
+    ]:
+        log_path = log_dir / log_file
+        assert log_path.exists(), f"Missing log file: {log_file}"
