@@ -8,7 +8,6 @@ from jsonify.config import init_directory_manager, get_directory_manager
 from jsonify.converter.python_converter import parse_xml_to_json
 import xml.etree.ElementTree as ET
 
-# Configure logging
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -44,7 +43,7 @@ def test_env():
 def test_convert_xml_specific_fields(test_env):
     dir_manager = test_env
     input_file = dir_manager.get_input_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd.xml'
-    output_file = dir_manager.get_output_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd.json'
+    output_file = dir_manager.get_output_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd_python.json'
 
     fields = [
         './/id/@root',
@@ -62,7 +61,6 @@ def test_convert_xml_specific_fields(test_env):
         root_tag='document'
     )
 
-    # Ensure output directory exists
     output_file.parent.mkdir(parents=True, exist_ok=True)
 
     with open(output_file, 'w', encoding='utf-8') as f:
@@ -111,7 +109,7 @@ def test_convert_txt(test_env):
 def test_convert_xml_structured_alymsys(test_env):
     dir_manager = test_env
     input_file = dir_manager.get_input_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd.xml'
-    output_file = dir_manager.get_output_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd.json'
+    output_file = dir_manager.get_output_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd_python_structured.json'
 
     ns = {'': 'urn:hl7-org:v3'}
     field_map = {
@@ -166,7 +164,6 @@ def test_convert_xml_structured_alymsys(test_env):
     result['warningsAndPrecautions'] = extract_section_text('34069-5')
     result['adverseReactions'] = extract_section_text('34070-3')
 
-    # Ensure output directory exists
     output_file.parent.mkdir(parents=True, exist_ok=True)
 
     with open(output_file, 'w', encoding='utf-8') as f:
@@ -206,4 +203,57 @@ def test_convert_xml_structured_alymsys(test_env):
 
     for k in ["indications", "contraindications", "warningsAndPrecautions", "adverseReactions"]:
         assert result[k] is not None and isinstance(result[k], str) and len(result[k]) > 0
+
+def test_convert_xml_with_xslt(test_env):
+    dir_manager = test_env
+    input_file = dir_manager.get_input_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd.xml'
+    output_file = dir_manager.get_output_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd_xslt.json'
+    xslt_file = Path(__file__).parent / 'conversion_xslt.xslt'
+
+    result = convert_xml(
+        str(input_file),
+        converter='xslt',
+        xslt_path=str(xslt_file)
+    )
+
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(result, f, indent=4, ensure_ascii=False)
+
+    assert output_file.exists(), f"Arquivo de saída não foi criado em {output_file}"
+
+    assert 'id' in result
+    assert 'code' in result
+    assert isinstance(result['code'], dict)
+    assert 'code' in result['code']
+    assert 'codeSystem' in result['code']
+    assert 'displayName' in result['code']
+    assert 'title' in result
+    assert 'effectiveTime' in result
+    assert 'ingredients' in result
+    assert isinstance(result['ingredients'], list)
+    assert 'contraindications' in result
+    assert isinstance(result['contraindications'], list)
+    assert 'warningsAndPrecautions' in result
+    assert isinstance(result['warningsAndPrecautions'], list)
+    assert 'adverseReactions' in result
+    assert isinstance(result['adverseReactions'], list)
+
+    assert result['id'] == '0017a82d-4f35-4d17-ab5c-4744dc0effdd'
+    assert result['code']['code'] == '34391-3'
+    assert result['code']['codeSystem'] == '2.16.840.1.113883.6.1'
+    assert result['code']['displayName'] == 'HUMAN PRESCRIPTION DRUG LABEL'
+    assert result['effectiveTime'] == '20220423'
+
+    assert len(result['ingredients']) > 0
+    for ingredient in result['ingredients']:
+        assert 'name' in ingredient
+        assert 'code' in ingredient
+        assert isinstance(ingredient['name'], str)
+        assert isinstance(ingredient['code'], str)
+
+    assert len(result['contraindications']) > 0
+    assert len(result['warningsAndPrecautions']) > 0
+    assert len(result['adverseReactions']) > 0
 

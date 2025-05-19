@@ -270,29 +270,8 @@ def convert_xml(
     namespaces: Optional[Dict[str, str]] = None,
     root_tag: Optional[str] = None
 ) -> Dict[str, Any]:
-    """
-    Convert XML file to JSON format.
-    
-    Args:
-        input_file: Path to input XML file
-        output_dir: Directory to save output JSON file (optional)
-        mode: Conversion mode ('python' or 'xslt')
-        xslt_file: Path to XSLT file (required for xslt mode)
-        field_map: Dictionary mapping field names to XPath expressions (for python mode)
-        fields: List of XPath expressions to extract (for python mode)
-        namespaces: Dictionary of namespace prefixes and URIs (for python mode)
-        root_tag: Root tag to start parsing from (for python mode)
-        
-    Returns:
-        dict: Parsed data in JSON format
-    """
-    logger.info(">>>> Entrou na função convert_xml <<<<")
-    logger.info(f"Starting convert_xml function with mode: {mode}")
-    logger.info(f"Input file: {input_file}")
-    logger.info(f"XSLT file: {xslt_file}")
     
     if mode == 'python':
-        logger.info("Using Python mode for conversion")
         result = parse_xml_to_json(
             input_file,
             field_map=field_map,
@@ -302,18 +281,12 @@ def convert_xml(
         )
     elif mode == 'xslt':
         if not xslt_file:
-            logger.error("xslt_file is required when mode is 'xslt'")
             raise ValueError("xslt_file is required when mode is 'xslt'")
-        logger.info(f"Using XSLT mode for conversion")
-        logger.info(f"Calling apply_xslt_to_xml with input_file: {input_file} and xslt_file: {xslt_file}")
         try:
             result = apply_xslt_to_xml(input_file, xslt_file)
-            logger.info(f"XSLT conversion completed. Result keys: {list(result.keys()) if result else 'empty'}")
         except Exception as e:
-            logger.error(f"Error in XSLT conversion: {str(e)}")
             raise
     else:
-        logger.error(f"Unsupported conversion mode: {mode}")
         raise ValueError(f"Unsupported conversion mode: {mode}")
 
     if output_dir:

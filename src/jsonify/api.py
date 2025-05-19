@@ -95,7 +95,7 @@ def convert_file(
         elif xml_converter == 'xslt':
             if not xslt_path:
                 raise ValueError("XSLT converter requires an XSLT file path")
-            result = convert_xml_xslt(xslt_path, file_path)
+            result = convert_xml_xslt(file_path, xslt_path)
         else:
             raise ValueError(f"Unsupported XML converter: {xml_converter}")
             
