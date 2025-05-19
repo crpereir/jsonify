@@ -27,7 +27,6 @@ def test_env():
         input_dir.mkdir(parents=True, exist_ok=True)
         output_dir.mkdir(parents=True, exist_ok=True)
     
-    logger.info("\nArquivos nas pastas de output:")
     
     for dir_type in ['csv_files', 'xml_files', 'text_files']:
         output_dir = base_dir / 'output' / dir_type
@@ -66,7 +65,7 @@ def test_convert_xml_specific_fields(test_env):
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(result, f, indent=4, ensure_ascii=False)
 
-    assert output_file.exists(), f"Arquivo de saída não foi criado em {output_file}"
+    assert output_file.exists(), f"Output file was not created at {output_file}"
 
     assert 'root' in result
     assert 'code' in result
@@ -83,14 +82,14 @@ def test_convert_csv(test_env):
     result = convert_csv(str(input_file), skiprows=3)
 
     files = list(output_dir.glob('*.json'))
-    assert len(files) > 0, f"Nenhum arquivo JSON foi criado em {output_dir}"
+    assert len(files) > 0, f"No JSON files were created in {output_dir}"
 
     record_file = output_dir / 'record_1.json'
-    assert record_file.exists(), f"Arquivo record_1.json não foi criado em {output_dir}"
+    assert record_file.exists(), f"File record_1.json was not created in {output_dir}"
 
     with open(record_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
-        assert isinstance(data, dict), "O arquivo JSON deve conter um objeto"
+        assert isinstance(data, dict), "The JSON file must contain an object"
 
 def test_convert_txt(test_env):
     dir_manager = test_env
@@ -100,7 +99,7 @@ def test_convert_txt(test_env):
     result = convert_file(str(input_file), file_type='txt')
     
     files = list(output_dir.glob('record_*.json'))
-    assert len(files) > 0, f"Nenhum arquivo JSON foi criado em {output_dir}"
+    assert len(files) > 0, f"No JSON files were created in {output_dir}"
     
     with open(files[0], 'r', encoding='utf-8') as f:
         saved_result = json.load(f)
@@ -221,7 +220,7 @@ def test_convert_xml_with_xslt(test_env):
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(result, f, indent=4, ensure_ascii=False)
 
-    assert output_file.exists(), f"Arquivo de saída não foi criado em {output_file}"
+    assert output_file.exists(), f"Output file was not created at {output_file}"
 
     assert 'id' in result
     assert 'code' in result

@@ -37,13 +37,14 @@ def convert_file(
     xslt_path: Optional[str] = None,
     namespaces: Optional[Dict[str, str]] = None,
     root_tag: Optional[str] = None,
+    field_map: Optional[Dict[str, str]] = None,
     **kwargs
 ) -> Union[Dict, List[Dict]]:
 
     dir_manager = get_directory_manager()
     
     if not dir_manager.validate_input_file(file_path):
-        raise ValueError(f"Arquivo deve estar no diretório apropriado para seu tipo")
+        raise ValueError(f"File must be in the correct input directory for type {file_type}")
     
     if file_type is None:
         file_type = Path(file_path).suffix.lower().lstrip('.')
@@ -90,7 +91,8 @@ def convert_file(
                 file_path,
                 fields=fields,
                 namespaces=namespaces,
-                root_tag=root_tag
+                root_tag=root_tag,
+                field_map=field_map
             )
         elif xml_converter == 'xslt':
             if not xslt_path:
@@ -134,16 +136,36 @@ def convert_xml(
     xslt_path: Optional[str] = None,
     namespaces: Optional[Dict[str, str]] = None,
     root_tag: Optional[str] = None,
+    field_map: Optional[Dict[str, str]] = None,
     **kwargs
 ) -> Dict:
-    return convert_file(
-        file_path,
-        output_path,
-        fields,
-        'xml',
-        xml_converter=converter,
-        xslt_path=xslt_path,
-        namespaces=namespaces,
-        root_tag=root_tag,
-        **kwargs
-    )
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"Input file not found: {file_path}")
+
+    if converter == 'xslt' and not xslt_path:
+        raise ValueError("XSLT converter requires xslt_path parameter")
+
+    if converter == 'python' and not fields and not field_map:
+        raise ValueError("Python converter requires either fields or field_map parameter")
+
+    if converter == 'xslt':
+        from .converter.xslt_converter import apply_xslt_to_xml
+        result = apply_xslt_to_xml(file_path, xslt_path)
+    else:
+        from .converter.python_converter import parse_xml_to_json
+        result = parse_xml_to_json(
+            file_path,
+            field_map=field_map,
+            fields=fields,
+            namespaces=namespaces,
+            root_tag=root_tag
+        )
+
+    if output_path:
+        output_dir = Path(output_path)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_file = output_dir / f"{Path(file_path).stem}.json"
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(result, f, indent=4, ensure_ascii=False)
+
+    return result

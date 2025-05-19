@@ -1,14 +1,25 @@
 # JSONIFY
 
-A Python package to easily convert different types of files into JSON format.
+[![PyPI version](https://badge.fury.io/py/jsonify.svg)](https://badge.fury.io/py/jsonify)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/downloads/)
+
+A Python package to easily convert different types of files into JSON format. JSONIFY provides a simple and efficient way to transform various file formats (XML, CSV, TXT) into JSON, making it easier to work with structured data in your Python applications.
+
+## Features
+
+- Convert XML files to JSON using either Python-based or XSLT methods
+- Convert CSV files to JSON with customizable options
+- Convert TXT files to JSON with customizable options
+- Detailed error handling and validation
 
 ## Table of Contents
 1. [Installation](#installation)
-2. [Configuration](#configuration)
-3. [Structure](#structure)
-4. [Usage](#usage)
-5. [License](#license)
-6. [Contact](#contact)
+2. [Quick Start](#quick-start)
+4. [Project Structure](#project-structure)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Contact](#contact)
 
 ## Installation
 
@@ -21,66 +32,85 @@ pip install jsonify
 Or install locally for development:
 
 ```bash
+git clone https://github.com/crpereir/jsonify.git
+cd jsonify
 pip install -e .
 ```
 
-## Structure
-The project is organized as follows:
+## Quick Start
+
+```python
+from jsonify import convert_file, convert_csv, convert_xml
+
+# Convert any supported file type
+result = convert_file(
+    file_path="data/input/example.xml",
+    fields=["name", "description", "price"],
+    file_type="xml"
+)
+
+# Convert CSV specifically
+result = convert_csv(
+    file_path="data/input/example.csv",
+    fields=["id", "name", "value"],
+    delimiter=",",
+    skiprows=1
+)
+
+# Convert XML with specific options
+result = convert_xml(
+    file_path="data/input/example.xml",
+    fields=["name", "description"],
+    converter="python",  # or "xslt"
+    namespaces={"ns": "http://example.com/ns"},
+    root_tag="items"
+)
+```
+
+### Directory Structure
+
+The package automatically manages input and output directories based on file types:
+
+- CSV files: `csv_files/`
+- XML files: `xml_files/`
+- TXT files: `text_files/`
+
+## Project Structure
 
 ```
 jsonify/
 ├── README.md                  # Project documentation
-├── config.ini                 # Configuration file
-├── conversion_xslt.xslt       # XSLT stylesheet for XML conversion
 ├── setup.py                   # Setup script for installation
 └── src/
     └── jsonify/
-        ├── __init__.py
-        ├── config_loader.py   # Configuration manager (in-memory)
-        ├── converter/         # Conversion logic for different file types
-        │   ├── __init__.py
-        │   ├── csv_converter.py      # CSV to JSON conversion
-        │   ├── python_converter.py   # XML to JSON (Python method)
-        │   ├── xslt_converter.py     # XML to JSON (XSLT method)
-        ├── info/              # Folder for log and info files
-        ├── json/              # Output folder for JSON files
-        ├── api.py             # API definition
-        ├── main.py            # Main entry point for the package
-        └── types/             # Input folder for files to convert
-    └── jsonify.egg-info/      # Metadata for the installed package
+        ├── __init__.py        # Package initialization
+        ├── api.py             # Main API functions
+        ├── config.py          # Directory management
+        ├── config_loader.py   # Configuration handling
+        ├── main.py            # Core conversion logic
+        └── converter/         # Conversion implementations
+            ├── __init__.py
+            ├── csv_converter.py
+            ├── python_converter.py
+            └── xslt_converter.py
 ```
 
-## Usage
-Use the run_conversion function to convert files programmatically:
+## Contributing
 
-```python
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-from jsonify import run_conversion
-
-summary = run_conversion(
-    input_dir="data/input",
-    output_dir="data/output",
-    file_types=["xml", "csv", "txt"],
-    conversion_method="python",  # or "xslt"
-    log_dir="data/logs"
-)
-```
-
-**Parameters**:
-
-`input_dir (str)`: Base folder containing subfolders for each file type (e.g. `xml_files/`, `csv_files/`).
-
-`output_dir (str)`: Base folder where the JSON output will be saved.
-
-`file_types (list of str)`: File types to convert. Supported: "xml", "csv", "txt".
-
-`conversion_method (str)`: Conversion method for XML. Either "python" or "xslt".
-
-`log_dir (str, optional)`: Directory to store logs (missing fields, unconverted files, etc.).
-
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
-GitHub: https://github.com/crpereir/jsonify
+
+- GitHub: [https://github.com/crpereir/jsonify](https://github.com/crpereir/jsonify)
+- Email: [carolinadpereira18@gmail.com](mailto:carolinadpereira18@gmail.com) &
+         [matilde.pato@isel.pt](mailto:matilde.pato@isel.pt)

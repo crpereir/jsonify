@@ -48,10 +48,6 @@ def apply_xslt_to_xml(xml_file: str, xslt_file: str) -> dict:
         try:
             ns = {'v3': 'urn:hl7-org:v3'}
             result_tree = transform(xml_doc)
-            debug_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(xml_file))), 'debug_xslt_output.json')
-            os.makedirs(os.path.dirname(debug_file), exist_ok=True)
-            with open(debug_file, 'w', encoding='utf-8') as f:
-                f.write(str(result_tree))
             
             try:
                 result_dict = json.loads(str(result_tree))

@@ -37,8 +37,8 @@ def parse_xml_to_json(
 
     tree = ET.parse(xml_file)
     root = tree.getroot()
-    
     default_ns = root.tag.split('}')[0].strip('{') if '}' in root.tag else None
+    
     ns_prefix = 'ns'
     if default_ns:
         if namespaces is None:
@@ -46,7 +46,7 @@ def parse_xml_to_json(
         elif '' in namespaces:
             namespaces = {ns_prefix: namespaces['']}
             del namespaces['']
-    
+        
     def add_prefix(xpath):
         if default_ns:
             parts = xpath.split('/')
@@ -64,24 +64,29 @@ def parse_xml_to_json(
     
     if root_tag:
         root_local = root.tag.split('}')[-1] if '}' in root.tag else root.tag
-        if root_local != root_tag:
+        if root_local.strip().lower() != root_tag.strip().lower():
             if default_ns:
-                root = root.find(f'.//{{{default_ns}}}{root_tag}')
+                root = root.find(f'.//{{{default_ns}}}{root_tag.strip()}')
             else:
-                root = root.find(f'.//{root_tag}')
+                root = root.find(f'.//{root_tag.strip()}')
             if root is None:
                 return {}
     
     def safe_find(element, xpath):
         try:
             xpath = add_prefix(xpath)
-            return element.find(xpath, namespaces)
-        except Exception:
+            if not xpath.startswith('.') and not xpath.startswith('/'):
+                xpath = './' + xpath
+            result = element.find(xpath, namespaces)
+            return result
+        except Exception as e:
             return None
     
     def safe_findall(element, xpath):
         try:
             xpath = add_prefix(xpath)
+            if not xpath.startswith('.') and not xpath.startswith('/'):
+                xpath = './' + xpath
             return element.findall(xpath, namespaces)
         except Exception:
             return []
@@ -115,7 +120,26 @@ def parse_xml_to_json(
     
     if field_map:
         for field, xpath in field_map.items():
-            if '@' in xpath:
+            if isinstance(xpath, list):
+                values = []
+                for path in xpath:
+                    elements = safe_findall(root, path)
+                    for element in elements:
+                        if element is not None and element.text:
+                            values.append(element.text.strip())
+                
+                if values:
+                    if '.' in field:
+                        parts = field.split('.')
+                        current = result
+                        for part in parts[:-1]:
+                            if part not in current:
+                                current[part] = {}
+                            current = current[part]
+                        current[parts[-1]] = values
+                    else:
+                        result[field] = values
+            elif '@' in xpath:
                 base_path, attr = xpath.rsplit('@', 1)
                 base_path = base_path.rstrip('/').strip()
                 attr = attr.strip()
@@ -158,7 +182,10 @@ def parse_xml_to_json(
                 element = safe_find(root, xpath)
                 if element is not None:
                     tag = xpath.split('/')[-1]
-                    result[tag] = element.text.strip() if element.text else None
+                    if len(element) > 0:
+                        result[tag] = extract_element_data(element)
+                    else:
+                        result[tag] = element.text.strip() if element.text else None
     
     return result
 
@@ -218,8 +245,6 @@ def convert_txt(
         content = f.read()
     
     sections = re.split(r'\n\s*\n', content)
-    if sections and any(keyword in sections[0].upper() for keyword in ['DATABASE', 'INFORMATION', 'RECORDS']):
-        sections = sections[1:]
     
     for i, section in enumerate(sections):
         if not section.strip():  
@@ -270,7 +295,7 @@ def convert_xml(
     namespaces: Optional[Dict[str, str]] = None,
     root_tag: Optional[str] = None
 ) -> Dict[str, Any]:
-    
+
     if mode == 'python':
         result = parse_xml_to_json(
             input_file,
