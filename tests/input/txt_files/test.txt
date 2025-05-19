@@ -1,3 +1,0 @@
-Ingredient~Amount
-Sugar~2
-Salt~1

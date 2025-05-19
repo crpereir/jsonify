@@ -1,1 +1,0 @@
-File: /home/carol/jsonify/tests/input/xml_files/test.xml, Missing fields: indications, contraindications, warningsAndPrecautions, adverseReactions

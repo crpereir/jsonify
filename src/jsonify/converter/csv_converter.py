@@ -2,14 +2,14 @@ import json
 import pandas as pd
 import os
 
-def convert_file_to_json(input_file, output_directory, delimiter=",", skiprows=0):
+def convert_file_to_json(input_file, output_directory, fields=None, delimiter=",", skiprows=0):
     try:
         os.makedirs(output_directory, exist_ok=True)
         
         df = pd.read_csv(input_file, delimiter=delimiter, skiprows=skiprows)
         
-        if 'Ingredient' in df.columns:
-            df.rename(columns={'Ingredient': 'Proper Name'}, inplace=True)
+        if fields:
+            df = df[fields]
         
         df.dropna(axis=1, how="all", inplace=True)
         df.dropna(how="all", inplace=True)

@@ -1,5 +1,13 @@
 from .config_loader import ConfigLoader
 from .main import process_file_types
+from typing import Any, Dict, List, Optional, Union
+import json
+import os
+from pathlib import Path
+from .converter.csv_converter import convert_file_to_json as convert_csv_file
+from .converter.python_converter import parse_xml_to_json as convert_xml_python
+from .converter.xslt_converter import apply_xslt_to_xml as convert_xml_xslt
+from .config import get_directory_manager
 
 def run_conversion(
     input_dir: str,
@@ -19,3 +27,123 @@ def run_conversion(
         config_loader.override_log_paths(log_dir)
 
     return process_file_types(config_loader)
+
+def convert_file(
+    file_path: str,
+    output_path: Optional[str] = None,
+    fields: Optional[List[str]] = None,
+    file_type: Optional[str] = None,
+    xml_converter: str = "python",
+    xslt_path: Optional[str] = None,
+    namespaces: Optional[Dict[str, str]] = None,
+    root_tag: Optional[str] = None,
+    **kwargs
+) -> Union[Dict, List[Dict]]:
+
+    dir_manager = get_directory_manager()
+    
+    if not dir_manager.validate_input_file(file_path):
+        raise ValueError(f"Arquivo deve estar no diretório apropriado para seu tipo")
+    
+    if file_type is None:
+        file_type = Path(file_path).suffix.lower().lstrip('.')
+    
+    if output_path is None:
+        output_path = str(dir_manager.get_default_output_path(file_path))
+    else:
+        output_path = Path(output_path)
+        if not str(output_path).startswith(str(dir_manager.get_output_dir(file_type))):
+            output_path = dir_manager.get_output_dir(file_type) / output_path.name
+        output_path = str(output_path)
+    
+    result = None
+    
+    if file_type == 'csv':
+        output_dir = dir_manager.get_output_dir('csv')
+        os.makedirs(output_dir, exist_ok=True)
+        result_msg = convert_csv_file(
+            file_path,
+            str(output_dir),
+            fields=fields,
+            delimiter=kwargs.get('delimiter', ','),
+            skiprows=kwargs.get('skiprows', 0)
+        )
+        print(result_msg)
+        result = {"message": result_msg}
+    
+    elif file_type == 'txt':
+        output_dir = dir_manager.get_output_dir('txt')
+        os.makedirs(output_dir, exist_ok=True)
+        result_msg = convert_csv_file(
+            file_path,
+            str(output_dir),
+            fields=fields,
+            delimiter=kwargs.get('delimiter', '~'),
+            skiprows=kwargs.get('skiprows', 0)
+        )
+        print(result_msg)
+        result = {"message": result_msg}
+    
+    elif file_type == 'xml':
+        if xml_converter == 'python':
+            result = convert_xml_python(
+                file_path,
+                fields=fields,
+                namespaces=namespaces,
+                root_tag=root_tag
+            )
+        elif xml_converter == 'xslt':
+            if not xslt_path:
+                raise ValueError("XSLT converter requires an XSLT file path")
+            result = convert_xml_xslt(xslt_path, file_path)
+        else:
+            raise ValueError(f"Unsupported XML converter: {xml_converter}")
+            
+        output_dir = os.path.dirname(output_path)
+        os.makedirs(output_dir, exist_ok=True)
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(result, f, indent=4, ensure_ascii=False)
+    else:
+        raise ValueError(f"Unsupported file type: {file_type}")
+    
+    return result
+
+def convert_csv(
+    file_path: str,
+    output_path: Optional[str] = None,
+    fields: Optional[List[str]] = None,
+    delimiter: str = ",",
+    skiprows: int = 0,
+    **kwargs
+) -> Dict:
+    return convert_file(
+        file_path,
+        output_path,
+        fields,
+        'csv',
+        delimiter=delimiter,
+        skiprows=skiprows,
+        **kwargs
+    )
+
+def convert_xml(
+    file_path: str,
+    output_path: Optional[str] = None,
+    fields: Optional[List[str]] = None,
+    converter: str = "python",
+    xslt_path: Optional[str] = None,
+    namespaces: Optional[Dict[str, str]] = None,
+    root_tag: Optional[str] = None,
+    **kwargs
+) -> Dict:
+    return convert_file(
+        file_path,
+        output_path,
+        fields,
+        'xml',
+        xml_converter=converter,
+        xslt_path=xslt_path,
+        namespaces=namespaces,
+        root_tag=root_tag,
+        **kwargs
+    )
