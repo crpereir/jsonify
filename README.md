@@ -37,6 +37,7 @@
 [![PyPI version](https://badge.fury.io/py/jsonify.svg)](https://badge.fury.io/py/jsonify)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/downloads/)
+[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/carol/jsonify)
 
 A Python package to easily convert different types of files into JSON format. JSONIFY provides a simple and efficient way to transform various file formats (XML, CSV, TXT) into JSON, making it easier to work with structured data in your Python applications.
 
