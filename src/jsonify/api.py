@@ -9,6 +9,7 @@ from .converter.python_converter import parse_xml_to_json as convert_xml_python
 from .converter.xslt_converter import apply_xslt_to_xml as convert_xml_xslt
 from .config import get_directory_manager
 
+"""
 def run_conversion(
     input_dir: str,
     output_dir: str,
@@ -27,6 +28,7 @@ def run_conversion(
         config_loader.override_log_paths(log_dir)
 
     return process_file_types(config_loader)
+"""
 
 def convert_file(
     file_path: str,
