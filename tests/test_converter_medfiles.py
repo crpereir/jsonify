@@ -256,3 +256,38 @@ def test_convert_xml_with_xslt(test_env):
     assert len(result['warningsAndPrecautions']) > 0
     assert len(result['adverseReactions']) > 0
 
+def test_convert_xml_auto(test_env):
+    dir_manager = test_env
+    input_file = dir_manager.get_input_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd.xml'
+    output_file = dir_manager.get_output_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd_auto.json'
+
+    result = convert_file(
+        file_path=str(input_file),
+        file_type="xml",
+        xml_converter="python"
+    )
+
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(result, f, indent=4, ensure_ascii=False)
+
+    assert output_file.exists(), f"Output file was not created at {output_file}"
+
+    assert isinstance(result, dict), "The result should be a dictionary"
+    assert len(result) > 0, "The result should not be empty"
+
+    assert 'id' in result, "The result must contain the document ID"
+    assert 'code' in result, "The result must contain the code"
+    assert 'effectiveTime' in result, "The result must contain the effective time"
+
+    assert isinstance(result['code'], dict), "The code must be a dictionary"
+    assert 'code' in result['code'], "The code must contain the code value"
+    assert 'codeSystem' in result['code'], "The code must contain the code system"
+    assert 'displayName' in result['code'], "The code must contain the display name"
+
+    assert 'component' in result, "The result must contain components"
+    assert 'structuredBody' in result['component'], "The result must contain the structured body"
+
+    print("XML automatic conversion test completed successfully!")
+    print(f"Result saved at: {output_file}")

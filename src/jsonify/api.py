@@ -147,9 +147,6 @@ def convert_xml(
     if converter == 'xslt' and not xslt_path:
         raise ValueError("XSLT converter requires xslt_path parameter")
 
-    if converter == 'python' and not fields and not field_map:
-        raise ValueError("Python converter requires either fields or field_map parameter")
-
     if converter == 'xslt':
         from .converter.xslt_converter import apply_xslt_to_xml
         result = apply_xslt_to_xml(file_path, xslt_path)

@@ -214,3 +214,65 @@ def test_convert_xml_vulcanoes_parts(test_env):
     assert 'last_eruption' in result
     assert 'height' in result
     assert 'type' in result
+
+def test_convert_xml_vulcanoes_auto(test_env):
+    dir_manager = test_env
+    input_file = dir_manager.get_input_dir('xml') / 'vulcanoes.xml'
+    output_file = dir_manager.get_output_dir('xml') / 'vulcanoes_auto.json'
+
+    # Converter o arquivo XML inteiro sem especificar campos
+    result = convert_file(
+        file_path=str(input_file),
+        file_type="xml",
+        xml_converter="python"
+    )
+
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(result, f, indent=4, ensure_ascii=False)
+
+    assert output_file.exists(), f"Output file was not created at {output_file}"
+
+    # Verificar se o resultado contém a estrutura básica esperada
+    assert isinstance(result, dict), "O resultado deve ser um dicionário"
+    assert len(result) > 0, "O resultado não deve estar vazio"
+
+    # Verificar se contém as tags principais do documento
+    assert 'name' in result, "O resultado deve conter o nome do vulcão"
+    assert 'location' in result, "O resultado deve conter a localização"
+    assert 'last_eruption' in result, "O resultado deve conter a última erupção"
+    assert 'height' in result, "O resultado deve conter a altura"
+    assert 'type' in result, "O resultado deve conter o tipo"
+    assert 'description' in result, "O resultado deve conter a descrição"
+    assert 'monitoring' in result, "O resultado deve conter informações de monitoramento"
+
+    # Verificar a estrutura da localização
+    assert 'country' in result['location'], "A localização deve conter o país"
+    assert 'region' in result['location'], "A localização deve conter a região"
+    assert 'coordinates' in result['location'], "A localização deve conter as coordenadas"
+    assert 'latitude' in result['location']['coordinates'], "As coordenadas devem conter a latitude"
+    assert 'longitude' in result['location']['coordinates'], "As coordenadas devem conter a longitude"
+
+    # Verificar a estrutura da última erupção
+    assert 'date' in result['last_eruption'], "A última erupção deve conter a data"
+    assert 'magnitude' in result['last_eruption'], "A última erupção deve conter a magnitude"
+    assert 'casualties' in result['last_eruption'], "A última erupção deve conter o número de vítimas"
+
+    # Verificar a estrutura da altura
+    assert 'meters' in result['height'], "A altura deve conter os metros"
+    assert 'feet' in result['height'], "A altura deve conter os pés"
+
+    # Verificar a estrutura da descrição
+    assert 'summary' in result['description'], "A descrição deve conter um resumo"
+    assert 'history' in result['description'], "A descrição deve conter o histórico"
+    assert 'geology' in result['description'], "A descrição deve conter informações geológicas"
+
+    # Verificar a estrutura do monitoramento
+    assert 'status' in result['monitoring'], "O monitoramento deve conter o status"
+    assert 'last_inspection' in result['monitoring'], "O monitoramento deve conter a última inspeção"
+    assert 'risk_level' in result['monitoring'], "O monitoramento deve conter o nível de risco"
+    assert 'sensors' in result['monitoring'], "O monitoramento deve conter os sensores"
+
+    print("Teste de conversão automática de XML concluído com sucesso!")
+    print(f"Resultado salvo em: {output_file}")

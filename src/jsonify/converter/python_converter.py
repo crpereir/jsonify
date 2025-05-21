@@ -187,6 +187,10 @@ def parse_xml_to_json(
                     else:
                         result[tag] = element.text.strip() if element.text else None
     
+    else:
+        # Se nenhum field_map ou fields for especificado, converte todo o XML
+        result = extract_element_data(root)
+    
     return result
 
 def convert_csv(
