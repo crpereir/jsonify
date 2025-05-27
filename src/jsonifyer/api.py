@@ -9,26 +9,7 @@ from .converter.python_converter import parse_xml_to_json as convert_xml_python
 from .converter.xslt_converter import apply_xslt_to_xml as convert_xml_xslt
 from .config import get_directory_manager
 
-"""
-def run_conversion(
-    input_dir: str,
-    output_dir: str,
-    file_types: list,
-    conversion_method: str = "python",
-    log_dir: str = None
-):
-    config_loader = ConfigLoader()
 
-    config_loader.base_input_folder = input_dir
-    config_loader.base_output_folder = output_dir
-    config_loader.file_types = file_types
-    config_loader.conversion_method = conversion_method
-
-    if log_dir:
-        config_loader.override_log_paths(log_dir)
-
-    return process_file_types(config_loader)
-"""
 
 def convert_file(
     file_path: str,
@@ -42,27 +23,14 @@ def convert_file(
     field_map: Optional[Dict[str, str]] = None,
     **kwargs
 ) -> Union[Dict, List[Dict]]:
-
-    dir_manager = get_directory_manager()
-    
-    if not dir_manager.validate_input_file(file_path):
-        raise ValueError(f"File must be in the correct input directory for type {file_type}")
-    
+    # Usa diretamente os caminhos fornecidos pelo utilizador, sem impor diretórios
     if file_type is None:
         file_type = Path(file_path).suffix.lower().lstrip('.')
-    
-    if output_path is None:
-        output_path = str(dir_manager.get_default_output_path(file_path))
-    else:
-        output_path = Path(output_path)
-        if not str(output_path).startswith(str(dir_manager.get_output_dir(file_type))):
-            output_path = dir_manager.get_output_dir(file_type) / output_path.name
-        output_path = str(output_path)
-    
+
     result = None
-    
+
     if file_type == 'csv':
-        output_dir = dir_manager.get_output_dir('csv')
+        output_dir = output_path if output_path is not None else os.path.dirname(file_path)
         os.makedirs(output_dir, exist_ok=True)
         result_msg = convert_csv_file(
             file_path,
@@ -73,9 +41,9 @@ def convert_file(
         )
         print(result_msg)
         result = {"message": result_msg}
-    
+
     elif file_type == 'txt':
-        output_dir = dir_manager.get_output_dir('txt')
+        output_dir = output_path if output_path is not None else os.path.dirname(file_path)
         os.makedirs(output_dir, exist_ok=True)
         result_msg = convert_csv_file(
             file_path,
@@ -86,7 +54,7 @@ def convert_file(
         )
         print(result_msg)
         result = {"message": result_msg}
-    
+
     elif file_type == 'xml':
         if xml_converter == 'python':
             result = convert_xml_python(
@@ -102,14 +70,14 @@ def convert_file(
             result = convert_xml_xslt(file_path, xslt_path)
         else:
             raise ValueError(f"Unsupported XML converter: {xml_converter}")
-            
-        output_dir = os.path.dirname(output_path)
-        os.makedirs(output_dir, exist_ok=True)
-        with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(result, f, indent=4, ensure_ascii=False)
+        if output_path:
+            output_dir = os.path.dirname(output_path)
+            os.makedirs(output_dir, exist_ok=True)
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(result, f, indent=4, ensure_ascii=False)
     else:
         raise ValueError(f"Unsupported file type: {file_type}")
-    
+
     return result
 
 def convert_csv(

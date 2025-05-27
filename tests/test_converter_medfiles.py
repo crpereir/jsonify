@@ -3,9 +3,9 @@ import json
 import pytest
 import logging
 from pathlib import Path
-from jsonify import convert_xml, convert_csv, convert_file
-from jsonify.config import init_directory_manager, get_directory_manager
-from jsonify.converter.python_converter import parse_xml_to_json
+from jsonifyer import convert_xml, convert_csv, convert_file
+from jsonifyer.config import init_directory_manager, get_directory_manager
+from jsonifyer.converter.python_converter import parse_xml_to_json
 import xml.etree.ElementTree as ET
 
 logging.basicConfig(

@@ -3,10 +3,10 @@ import json
 import pytest
 import logging
 from pathlib import Path
-from jsonify import convert_xml, convert_csv, convert_file
-from jsonify.config import init_directory_manager, get_directory_manager
-from jsonify.converter.python_converter import parse_xml_to_json
-from jsonify.converter.csv_converter import convert_file_to_json
+from jsonifyer import convert_xml, convert_csv, convert_file
+from jsonifyer.config import init_directory_manager, get_directory_manager
+from jsonifyer.converter.python_converter import parse_xml_to_json
+from jsonifyer.converter.csv_converter import convert_file_to_json
 import xml.etree.ElementTree as ET
 
 logging.basicConfig(
@@ -43,7 +43,7 @@ def test_convert_csv_vulcanoes(test_env):
     input_file = dir_manager.get_input_dir('csv') / 'vulcanoes.csv'
     output_dir = dir_manager.get_output_dir('csv')
 
-    from jsonify.converter.python_converter import convert_csv
+    from jsonifyer.converter.python_converter import convert_csv
     field_map = {
         'name': 0,
         'location': 1,
