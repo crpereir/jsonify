@@ -4,7 +4,7 @@
 ![ISEL logo](https://raw.githubusercontent.com/crpereir/jsonify/main/img/logo-isel.png)
 
 
-# JSONIFY
+# JSONIFYER
 
 [![PyPI version](https://badge.fury.io/py/jsonify.svg)](https://badge.fury.io/py/jsonify)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
