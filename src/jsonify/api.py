@@ -159,7 +159,6 @@ def convert_xml(
             namespaces=namespaces,
             root_tag=root_tag
         )
-
     if output_path:
         output_dir = Path(output_path)
         output_dir.mkdir(parents=True, exist_ok=True)
@@ -168,3 +167,4 @@ def convert_xml(
             json.dump(result, f, indent=4, ensure_ascii=False)
 
     return result
+

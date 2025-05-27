@@ -4,12 +4,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jsonify"
-version = "0.1.0"
+version = "0.1.1"
 description = "Convert files to JSON format"
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
-    { name = "Carolina Pereira", email = "carolinadpereira18@gmail.com" }
+    { name = "Carolina Pereira", email = "carolinadpereira18[@]gmail.com" },
+    { name = "Matilde Pato", email = "matilde.pato[@]isel.pt" }
+]
+maintainers = [
+    { name = "Carolina Pereira", email = "carolinadpereira18[@]gmail.com" },
+    { name = "Matilde Pato", email = "matilde.pato[@]isel.pt" }
 ]
 dependencies = [
     "beautifulsoup4",
@@ -20,6 +25,20 @@ dependencies = [
     "pytest"
 ]
 requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: General"
+]
 
 [project.scripts]
 jsonify = "jsonify.main:main"
@@ -27,3 +46,4 @@ jsonify = "jsonify.main:main"
 [project.urls]
 Homepage = "https://github.com/crpereir/jsonify"
 Issues = "https://github.com/crpereir/jsonify/issues"
+Repository = "https://github.com/crpereir/jsonify.git"
