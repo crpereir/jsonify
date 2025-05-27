@@ -11,7 +11,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/downloads/)
 [![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/carol/jsonify)
 
-A Python package to easily convert different types of files into JSON format. JSONIFY provides a simple and efficient way to transform various file formats (XML, CSV, TXT) into JSON, making it easier to work with structured data in your Python applications.
+A Python package to easily convert different types of files into JSON format. JSONIFYER provides a simple and efficient way to transform various file formats (XML, CSV, TXT) into JSON, making it easier to work with structured data in your Python applications.
 
 ## Features
 
@@ -33,14 +33,14 @@ A Python package to easily convert different types of files into JSON format. JS
 Install via PyPI:
 
 ```bash
-pip install jsonify
+pip install jsonifyer
 ```
 
 Or install locally for development:
 
 ```bash
 git clone https://github.com/crpereir/jsonify.git
-cd jsonify
+cd jsonifyer
 pip install -e .
 ```
 
@@ -89,7 +89,7 @@ jsonify/
 ├── README.md                  # Project documentation
 ├── setup.py                   # Setup script for installation
 └── src/
-    └── jsonify/
+    └── jsonifyer/
         ├── __init__.py        # Package initialization
         ├── api.py             # Main API functions
         ├── config.py          # Directory management
@@ -118,5 +118,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-- GitHub: [https://github.com/crpereir/jsonify](https://github.com/crpereir/jsonify)
+- GitHub: [https://github.com/crpereir/jsonifyer](https://github.com/crpereir/jsonifyer)
 - Email: carolinadpereira18[@]gmail.com & matilde.pato[@]isel.pt
