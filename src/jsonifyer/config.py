@@ -13,13 +13,7 @@ class DirectoryManager:
         self.base_dir = Path(base_dir)
         self.input_dir = self.base_dir / 'input'
         self.output_dir = self.base_dir / 'output'
-        self._create_directory_structure()
     
-    def _create_directory_structure(self):
-        for dir_name in self.SUPPORTED_TYPES.values():
-            os.makedirs(self.input_dir / dir_name, exist_ok=True)
-        for dir_name in self.SUPPORTED_TYPES.values():
-            os.makedirs(self.output_dir / dir_name, exist_ok=True)
     
     def get_input_dir(self, file_type: str) -> Path:
         if file_type not in self.SUPPORTED_TYPES:

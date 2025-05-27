@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jsonifyer"
-version = "0.1.4"
+version = "0.1.5"
 description = "Convert files to JSON format"
 readme = "README.md"
 license = { text = "MIT" }
