@@ -4,17 +4,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jsonify"
-version = "0.1.1"
+version = "0.1.6"
 description = "Convert files to JSON format"
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
-    { name = "Carolina Pereira", email = "carolinadpereira18[@]gmail.com" },
-    { name = "Matilde Pato", email = "matilde.pato[@]isel.pt" }
+    { name = "Carolina Pereira", email = "carolinadpereira18@gmail.com" },
+    { name = "Matilde Pato", email = "matilde.pato@isel.pt" }
 ]
 maintainers = [
-    { name = "Carolina Pereira", email = "carolinadpereira18[@]gmail.com" },
-    { name = "Matilde Pato", email = "matilde.pato[@]isel.pt" }
+    { name = "Carolina Pereira", email = "carolinadpereira18@gmail.com" },
+    { name = "Matilde Pato", email = "matilde.pato@isel.pt" }
 ]
 dependencies = [
     "beautifulsoup4",

@@ -1,7 +1,7 @@
 
 
 
-![ISEL logo](img/logo-isel.png)
+![ISEL logo](https://raw.githubusercontent.com/crpereir/jsonify/main/img/logo-isel.png)
 
 
 # JSONIFY
