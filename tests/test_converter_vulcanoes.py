@@ -1,12 +1,10 @@
-import os
 import json
 import pytest
 import logging
 from pathlib import Path
-from jsonifyer import convert_xml, convert_csv, convert_file
+from jsonifyer import convert_xml, convert_csv, convert_txt
 from jsonifyer.config import init_directory_manager, get_directory_manager
 from jsonifyer.converter.python_converter import parse_xml_to_json
-from jsonifyer.converter.csv_converter import convert_file_to_json
 import xml.etree.ElementTree as ET
 
 logging.basicConfig(
@@ -77,9 +75,8 @@ def test_convert_txt_vulcanoes(test_env):
     input_file = dir_manager.get_input_dir('txt') / 'vulcanoes.txt'
     output_dir = dir_manager.get_output_dir('txt')
 
-    result = convert_file(
+    result = convert_txt(
         str(input_file),
-        file_type='txt',
         delimiter='~'
     )
 
@@ -221,9 +218,8 @@ def test_convert_xml_vulcanoes_auto(test_env):
     output_file = dir_manager.get_output_dir('xml') / 'vulcanoes_auto.json'
 
     # Converter o arquivo XML inteiro sem especificar campos
-    result = convert_file(
+    result = convert_xml(
         file_path=str(input_file),
-        file_type="xml",
         xml_converter="python"
     )
 

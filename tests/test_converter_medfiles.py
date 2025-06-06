@@ -3,7 +3,7 @@ import json
 import pytest
 import logging
 from pathlib import Path
-from jsonifyer import convert_xml, convert_csv, convert_file
+from jsonifyer import convert_xml, convert_csv, convert_txt
 from jsonifyer.config import init_directory_manager, get_directory_manager
 from jsonifyer.converter.python_converter import parse_xml_to_json
 import xml.etree.ElementTree as ET
@@ -96,7 +96,7 @@ def test_convert_txt(test_env):
     input_file = dir_manager.get_input_dir('txt') / 'products.txt'
     output_dir = dir_manager.get_output_dir('txt')
     
-    result = convert_file(str(input_file), file_type='txt')
+    result = convert_txt(str(input_file))
     
     files = list(output_dir.glob('record_*.json'))
     assert len(files) > 0, f"No JSON files were created in {output_dir}"
@@ -261,9 +261,8 @@ def test_convert_xml_auto(test_env):
     input_file = dir_manager.get_input_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd.xml'
     output_file = dir_manager.get_output_dir('xml') / '0017a82d-4f35-4d17-ab5c-4744dc0effdd_auto.json'
 
-    result = convert_file(
+    result = convert_xml(
         file_path=str(input_file),
-        file_type="xml",
         xml_converter="python"
     )
 

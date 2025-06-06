@@ -10,10 +10,10 @@ Currently supported formats:
 """
 
 from .api import (
-    convert_file,
     convert_csv,
-    convert_xml
+    convert_xml,
+    convert_txt
 )
 
-__version__ = '0.1.0'
-__all__ = ['convert_file', 'convert_csv', 'convert_xml']
+__version__ = '0.1.7'
+__all__ = ['convert_csv', 'convert_xml', 'convert_txt']
