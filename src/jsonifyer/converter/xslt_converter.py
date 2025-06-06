@@ -12,7 +12,7 @@ if not logger.hasHandlers():
     logger.addHandler(handler)
 
 
-def apply_xslt_to_xml(xml_file: str, xslt_file: str) -> dict:
+def apply_xslt_to_xml(xml_file: str, repeated_file: str, xslt_file: str) -> dict:
     try:
         if not os.path.exists(xml_file):
             return {}

@@ -16,15 +16,15 @@ logger = logging.getLogger(__name__)
 @pytest.fixture(scope="session")
 def test_env():
     base_dir = Path(__file__).parent
-    
+
     dir_manager = init_directory_manager(str(base_dir))
-    
+
     for dir_type in ['csv_files', 'xml_files', 'text_files']:
         input_dir = base_dir / 'input' / dir_type
         output_dir = base_dir / 'output' / dir_type
         input_dir.mkdir(parents=True, exist_ok=True)
         output_dir.mkdir(parents=True, exist_ok=True)
-        
+
     for dir_type in ['csv_files', 'xml_files', 'text_files']:
         output_dir = base_dir / 'output' / dir_type
         if output_dir.exists():
@@ -33,7 +33,7 @@ def test_env():
                 logger.info(f"\n{dir_type}:")
                 for f in files:
                     logger.info(f"  - {f.name}")
-    
+
     return dir_manager
 
 def test_convert_csv_vulcanoes(test_env):
@@ -49,7 +49,7 @@ def test_convert_csv_vulcanoes(test_env):
         'height': 3,
         'type': 4
     }
-    
+
     result = convert_csv(
         str(input_file),
         str(output_dir),
@@ -77,6 +77,7 @@ def test_convert_txt_vulcanoes(test_env):
 
     result = convert_txt(
         str(input_file),
+        output_path=str(output_dir),
         delimiter='~'
     )
 
@@ -124,23 +125,22 @@ def test_convert_xml_vulcanoes_full(test_env):
 
     print(f"Input file path: {input_file}")
     print(f"Input file exists: {input_file.exists()}")
-    
+
     if input_file.exists():
         tree = ET.parse(input_file)
         root = tree.getroot()
         print(f"Root tag: {root.tag}")
         print(f"Root attributes: {root.attrib}")
-        
+
         for child in root:
             print(f"Child tag: {child.tag}")
-    
+
     print("\nDEBUG: Test field_map:")
     print(f"field_map type: {type(field_map)}")
     print(f"field_map content: {field_map}")
 
     result = convert_xml(
         str(input_file),
-        mode='python',
         field_map=field_map,
         output_dir=str(output_file.parent),
         root_tag='vulcano',
@@ -157,7 +157,7 @@ def test_convert_xml_vulcanoes_full(test_env):
         json.dump(result, f, indent=4, ensure_ascii=False)
 
     assert output_file.exists(), f"Output file was not created in {output_file}"
-    
+
     assert 'name' in result
     assert 'location' in result
     assert 'last_eruption' in result
@@ -217,10 +217,11 @@ def test_convert_xml_vulcanoes_auto(test_env):
     input_file = dir_manager.get_input_dir('xml') / 'vulcanoes.xml'
     output_file = dir_manager.get_output_dir('xml') / 'vulcanoes_auto.json'
 
-    # Converter o arquivo XML inteiro sem especificar campos
+    # Convert the entire XML file without specifying fields
     result = convert_xml(
         file_path=str(input_file),
-        xml_converter="python"
+        converter="python",
+        output_dir=str(output_file.parent)
     )
 
     output_file.parent.mkdir(parents=True, exist_ok=True)
@@ -230,45 +231,45 @@ def test_convert_xml_vulcanoes_auto(test_env):
 
     assert output_file.exists(), f"Output file was not created at {output_file}"
 
-    # Verificar se o resultado contém a estrutura básica esperada
-    assert isinstance(result, dict), "O resultado deve ser um dicionário"
-    assert len(result) > 0, "O resultado não deve estar vazio"
+    # Check if the result contains the expected basic structure
+    assert isinstance(result, dict), "The result must be a dictionary"
+    assert len(result) > 0, "The result must not be empty"
 
-    # Verificar se contém as tags principais do documento
-    assert 'name' in result, "O resultado deve conter o nome do vulcão"
-    assert 'location' in result, "O resultado deve conter a localização"
-    assert 'last_eruption' in result, "O resultado deve conter a última erupção"
-    assert 'height' in result, "O resultado deve conter a altura"
-    assert 'type' in result, "O resultado deve conter o tipo"
-    assert 'description' in result, "O resultado deve conter a descrição"
-    assert 'monitoring' in result, "O resultado deve conter informações de monitoramento"
+    # Check if it contains the main tags of the document
+    assert 'name' in result, "The result must contain the volcano name"
+    assert 'location' in result, "The result must contain the location"
+    assert 'last_eruption' in result, "The result must contain the last eruption"
+    assert 'height' in result, "The result must contain the height"
+    assert 'type' in result, "The result must contain the type"
+    assert 'description' in result, "The result must contain the description"
+    assert 'monitoring' in result, "The result must contain monitoring information"
 
-    # Verificar a estrutura da localização
-    assert 'country' in result['location'], "A localização deve conter o país"
-    assert 'region' in result['location'], "A localização deve conter a região"
-    assert 'coordinates' in result['location'], "A localização deve conter as coordenadas"
-    assert 'latitude' in result['location']['coordinates'], "As coordenadas devem conter a latitude"
-    assert 'longitude' in result['location']['coordinates'], "As coordenadas devem conter a longitude"
+    # Check the structure of the location
+    assert 'country' in result['location'], "The location must contain the country"
+    assert 'region' in result['location'], "The location must contain the region"
+    assert 'coordinates' in result['location'], "The location must contain the coordinates"
+    assert 'latitude' in result['location']['coordinates'], "The coordinates must contain the latitude"
+    assert 'longitude' in result['location']['coordinates'], "The coordinates must contain the longitude"
 
-    # Verificar a estrutura da última erupção
-    assert 'date' in result['last_eruption'], "A última erupção deve conter a data"
-    assert 'magnitude' in result['last_eruption'], "A última erupção deve conter a magnitude"
-    assert 'casualties' in result['last_eruption'], "A última erupção deve conter o número de vítimas"
+    # Check the structure of the last eruption
+    assert 'date' in result['last_eruption'], "The last eruption must contain the date"
+    assert 'magnitude' in result['last_eruption'], "The last eruption must contain the magnitude"
+    assert 'casualties' in result['last_eruption'], "The last eruption must contain the number of casualties"
 
-    # Verificar a estrutura da altura
-    assert 'meters' in result['height'], "A altura deve conter os metros"
-    assert 'feet' in result['height'], "A altura deve conter os pés"
+    # Check the structure of the height
+    assert 'meters' in result['height'], "The height must contain meters"
+    assert 'feet' in result['height'], "The height must contain feet"
 
-    # Verificar a estrutura da descrição
-    assert 'summary' in result['description'], "A descrição deve conter um resumo"
-    assert 'history' in result['description'], "A descrição deve conter o histórico"
-    assert 'geology' in result['description'], "A descrição deve conter informações geológicas"
+    # Check the structure of the description
+    assert 'summary' in result['description'], "The description must contain a summary"
+    assert 'history' in result['description'], "The description must contain the history"
+    assert 'geology' in result['description'], "The description must contain geological information"
 
-    # Verificar a estrutura do monitoramento
-    assert 'status' in result['monitoring'], "O monitoramento deve conter o status"
-    assert 'last_inspection' in result['monitoring'], "O monitoramento deve conter a última inspeção"
-    assert 'risk_level' in result['monitoring'], "O monitoramento deve conter o nível de risco"
-    assert 'sensors' in result['monitoring'], "O monitoramento deve conter os sensores"
+    # Check the structure of the monitoring
+    assert 'status' in result['monitoring'], "The monitoring must contain the status"
+    assert 'last_inspection' in result['monitoring'], "The monitoring must contain the last inspection"
+    assert 'risk_level' in result['monitoring'], "The monitoring must contain the risk level"
+    assert 'sensors' in result['monitoring'], "The monitoring must contain the sensors"
 
-    print("Teste de conversão automática de XML concluído com sucesso!")
-    print(f"Resultado salvo em: {output_file}")
+    print("Automatic XML conversion test completed successfully!")
+    print(f"Result saved at: {output_file}")

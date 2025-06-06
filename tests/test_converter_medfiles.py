@@ -96,7 +96,7 @@ def test_convert_txt(test_env):
     input_file = dir_manager.get_input_dir('txt') / 'products.txt'
     output_dir = dir_manager.get_output_dir('txt')
     
-    result = convert_txt(str(input_file))
+    result = convert_txt(str(input_file), "blah.bloh", "Ingredient", output_path=str(output_dir))
     
     files = list(output_dir.glob('record_*.json'))
     assert len(files) > 0, f"No JSON files were created in {output_dir}"

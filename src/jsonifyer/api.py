@@ -11,6 +11,7 @@ from .config import get_directory_manager
 
 def convert_xml(
     file_path: str,
+    repeated_path: str = None,
     output_path: Optional[str] = None,
     fields: Optional[List[str]] = None,
     converter: str = "python",
@@ -27,6 +28,7 @@ def convert_xml(
     if converter == 'python':
         result = convert_xml_python(
             file_path,
+            repeated_path,
             fields=fields,
             namespaces=namespaces,
             root_tag=root_tag,
@@ -35,7 +37,7 @@ def convert_xml(
     elif converter == 'xslt':
         if not xslt_path:
             raise ValueError("XSLT converter requires an XSLT file path")
-        result = convert_xml_xslt(file_path, xslt_path)
+        result = convert_xml_xslt(file_path, repeated_path, xslt_path)
     else:
         raise ValueError(f"Unsupported XML converter: {converter}")
         
@@ -52,6 +54,8 @@ def convert_xml(
 
 def convert_csv(
     file_path: str,
+    repeated_path: str = None,
+    repeated_item: str = None,
     output_path: Optional[str] = None,
     fields: Optional[List[str]] = None,
     delimiter: str = ",",
@@ -64,6 +68,8 @@ def convert_csv(
     os.makedirs(output_dir, exist_ok=True)
     result_msg = convert_csv_file(
         file_path,
+        repeated_path,
+        repeated_item,
         str(output_dir),
         fields,
         delimiter,
@@ -76,6 +82,8 @@ def convert_csv(
 
 def convert_txt(
     file_path: str,
+    repeated_path: str = None,
+    repeated_item: str = None,
     output_path: Optional[str] = None,
     fields: Optional[List[str]] = None,
     delimiter: str = "~",
@@ -87,6 +95,8 @@ def convert_txt(
     os.makedirs(output_dir, exist_ok=True)
     result_msg = convert_csv_file(
         file_path,
+        repeated_path,
+        repeated_item,
         str(output_dir),
         fields,
         delimiter,

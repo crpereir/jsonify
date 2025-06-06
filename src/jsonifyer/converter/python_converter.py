@@ -29,6 +29,7 @@ def set_nested_value(d, keys, value):
 
 def parse_xml_to_json(
     xml_file: str,
+    repeated_file: str = None,
     field_map: Optional[Dict[str, str]] = None,
     fields: Optional[List[str]] = None,
     namespaces: Optional[Dict[str, str]] = None,
