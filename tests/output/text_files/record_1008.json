@@ -1,16 +1,16 @@
 {
-    "Ingredient": "MORPHINE SULFATE; NALTREXONE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "EMBEDA",
-    "Applicant": "ALPHARMA PHARMS",
-    "Strength": "100MG;4MG **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**",
+    "Ingredient": "DEXAMETHASONE SODIUM PHOSPHATE; LIDOCAINE HYDROCHLORIDE",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "DECADRON W/ XYLOCAINE",
+    "Applicant": "MERCK",
+    "Strength": "EQ 4MG PHOSPHATE/ML;10MG/ML",
     "Appl_Type": "N",
-    "Appl_No": 22321,
-    "Product_No": 6,
+    "Appl_No": 13334,
+    "Product_No": 2,
     "TE_Code": null,
-    "Approval_Date": "Aug 13, 2009",
-    "RLD": "Yes",
+    "Approval_Date": "Approved Prior to Jan 1, 1982",
+    "RLD": "No",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "ALPHARMA PHARMACEUTICALS LLC"
+    "Applicant_Full_Name": "MERCK AND CO INC"
 }

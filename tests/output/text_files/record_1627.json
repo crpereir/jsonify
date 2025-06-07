@@ -1,16 +1,16 @@
 {
-    "Ingredient": "VENLAFAXINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "VENLAFAXINE HYDROCHLORIDE",
-    "Applicant": "DR REDDYS LABS LTD",
-    "Strength": "EQ 75MG BASE",
-    "Appl_Type": "A",
-    "Appl_No": 78421,
+    "Ingredient": "IOMEPROL",
+    "DF;Route": "SOLUTION;INTRA-ARTERIAL",
+    "Trade_Name": "IOMERVU",
+    "Applicant": "BRACCO",
+    "Strength": "15GM IODINE/50ML (300MG IODINE/ML)",
+    "Appl_Type": "N",
+    "Appl_No": 216016,
     "Product_No": 2,
-    "TE_Code": "AB",
-    "Approval_Date": "May 6, 2011",
-    "RLD": "No",
+    "TE_Code": null,
+    "Approval_Date": "Nov 27, 2024",
+    "RLD": "Yes",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "DR REDDYS LABORATORIES LTD"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "BRACCO DIAGNOSTICS INC"
 }

@@ -1,16 +1,16 @@
 {
-    "Ingredient": "DUTASTERIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "AVODART",
-    "Applicant": "WAYLIS THERAP",
-    "Strength": "0.5MG",
+    "Ingredient": "IBUPROFEN; PHENYLEPHRINE HYDROCHLORIDE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "ADVIL CONGESTION RELIEF",
+    "Applicant": "HALEON US HOLDINGS",
+    "Strength": "200MG;10MG",
     "Appl_Type": "N",
-    "Appl_No": 21319,
+    "Appl_No": 22565,
     "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Nov 20, 2001",
+    "TE_Code": null,
+    "Approval_Date": "May 27, 2010",
     "RLD": "Yes",
     "RS": "Yes",
-    "Type": "RX",
-    "Applicant_Full_Name": "WAYLIS THERAPEUTICS LLC"
+    "Type": "OTC",
+    "Applicant_Full_Name": "HALEON US HOLDINGS LLC"
 }

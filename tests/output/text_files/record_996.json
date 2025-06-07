@@ -1,16 +1,16 @@
 {
-    "Ingredient": "ASPIRIN",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "DURLAZA",
-    "Applicant": "HESP",
-    "Strength": "162.5MG",
+    "Ingredient": "WARFARIN SODIUM",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "COUMADIN",
+    "Applicant": "BRISTOL MYERS SQUIBB",
+    "Strength": "5MG/VIAL",
     "Appl_Type": "N",
-    "Appl_No": 200671,
-    "Product_No": 1,
+    "Appl_No": 9218,
+    "Product_No": 24,
     "TE_Code": null,
-    "Approval_Date": "Sep 4, 2015",
-    "RLD": "Yes",
+    "Approval_Date": "Feb 7, 1995",
+    "RLD": "No",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "HESP LLC"
+    "Applicant_Full_Name": "BRISTOL MYERS SQUIBB PHARMA CO"
 }

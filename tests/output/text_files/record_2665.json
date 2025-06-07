@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CLOMIPRAMINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CLOMIPRAMINE HYDROCHLORIDE",
-    "Applicant": "TRUPHARMA",
-    "Strength": "50MG",
-    "Appl_Type": "A",
-    "Appl_No": 210653,
-    "Product_No": 2,
-    "TE_Code": "AB",
-    "Approval_Date": "Apr 3, 2020",
-    "RLD": "No",
+    "Ingredient": "SELINEXOR",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "XPOVIO",
+    "Applicant": "KARYOPHARM THERAPS",
+    "Strength": "10MG",
+    "Appl_Type": "N",
+    "Appl_No": 212306,
+    "Product_No": 5,
+    "TE_Code": null,
+    "Approval_Date": "Mar 10, 2025",
+    "RLD": "Yes",
     "RS": "No",
     "Type": "RX",
-    "Applicant_Full_Name": "TRUPHARMA LLC"
+    "Applicant_Full_Name": "KARYOPHARM THERAPEUTICS INC"
 }

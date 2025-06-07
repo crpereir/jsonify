@@ -1,16 +1,16 @@
 {
-    "Ingredient": "VITAMIN A PALMITATE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "AFAXIN",
-    "Applicant": "STERLING WINTHROP",
-    "Strength": "EQ 50,000 UNITS BASE",
-    "Appl_Type": "A",
-    "Appl_No": 83187,
+    "Ingredient": "PALOPEGTERIPARATIDE",
+    "DF;Route": "SOLUTION;SUBCUTANEOUS",
+    "Trade_Name": "YORVIPATH",
+    "Applicant": "ASCENDIS PHARMA BONE",
+    "Strength": "EQ 0.168MG TERIPARATIDE/0.56ML (EQ 0.168MG TERIPARATIDE/0.56ML)",
+    "Appl_Type": "N",
+    "Appl_No": 216490,
     "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Approved Prior to Jan 1, 1982",
-    "RLD": "No",
-    "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "STERLING WINTHROP INC"
+    "Approval_Date": "Aug 9, 2024",
+    "RLD": "Yes",
+    "RS": "Yes",
+    "Type": "RX",
+    "Applicant_Full_Name": "ASCENDIS PHARMA BONE DISEASES AS"
 }

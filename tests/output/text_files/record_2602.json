@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CLINDAMYCIN HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CLINDAMYCIN HYDROCHLORIDE",
-    "Applicant": "SUN PHARM INDS LTD",
-    "Strength": "EQ 150MG BASE",
-    "Appl_Type": "A",
-    "Appl_No": 65061,
+    "Ingredient": "IOPANOIC ACID",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "TELEPAQUE",
+    "Applicant": "GE HEALTHCARE",
+    "Strength": "500MG",
+    "Appl_Type": "N",
+    "Appl_No": 8032,
     "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Feb 2, 2001",
+    "TE_Code": null,
+    "Approval_Date": "Approved Prior to Jan 1, 1982",
     "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "SUN PHARMACEUTICAL INDUSTRIES LTD"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "GE HEALTHCARE"
 }

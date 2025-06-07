@@ -1,16 +1,16 @@
 {
-    "Ingredient": "ACYCLOVIR",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "ACYCLOVIR",
-    "Applicant": "APOTEX",
-    "Strength": "200MG",
+    "Ingredient": "CALCIUM CHLORIDE; MAGNESIUM CHLORIDE; POTASSIUM CHLORIDE; SODIUM CHLORIDE",
+    "DF;Route": "SOLUTION;PERFUSION, CARDIAC",
+    "Trade_Name": "CARDIOPLEGIC IN PLASTIC CONTAINER",
+    "Applicant": "BAXTER HLTHCARE",
+    "Strength": "17.6MG/100ML;325.3MG/100ML;119.3MG/100ML;643MG/100ML",
     "Appl_Type": "A",
-    "Appl_No": 75677,
+    "Appl_No": 75323,
     "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Sep 28, 2005",
+    "TE_Code": "AT",
+    "Approval_Date": "Apr 21, 2000",
     "RLD": "No",
-    "RS": "Yes",
+    "RS": "No",
     "Type": "RX",
-    "Applicant_Full_Name": "APOTEX INC"
+    "Applicant_Full_Name": "BAXTER HEALTHCARE CORP"
 }

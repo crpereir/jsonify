@@ -1,16 +1,16 @@
 {
-    "Ingredient": "DONEPEZIL HYDROCHLORIDE; MEMANTINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "MEMANTINE HYDROCHLORIDE AND DONEPEZIL HYDROCHLORIDE",
-    "Applicant": "AMNEAL",
-    "Strength": "10MG;28MG",
-    "Appl_Type": "A",
-    "Appl_No": 208328,
-    "Product_No": 2,
-    "TE_Code": "AB",
-    "Approval_Date": "Jan 27, 2017",
+    "Ingredient": "MOXALACTAM DISODIUM",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "MOXAM",
+    "Applicant": "LILLY",
+    "Strength": "EQ 1GM BASE/VIAL",
+    "Appl_Type": "N",
+    "Appl_No": 50550,
+    "Product_No": 3,
+    "TE_Code": null,
+    "Approval_Date": "Approved Prior to Jan 1, 1982",
     "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "AMNEAL PHARMACEUTICALS LLC"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "ELI LILLY AND CO"
 }

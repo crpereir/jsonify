@@ -1,16 +1,16 @@
 {
-    "Ingredient": "POTASSIUM CHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "POTASSIUM CHLORIDE",
-    "Applicant": "LUPIN LTD",
-    "Strength": "10MEQ",
+    "Ingredient": "CHOLINE C-11",
+    "DF;Route": "INJECTABLE;INTRAVENOUS",
+    "Trade_Name": "CHOLINE C-11",
+    "Applicant": "DECATUR",
+    "Strength": "4-33.1mCi/ML",
     "Appl_Type": "A",
-    "Appl_No": 203002,
-    "Product_No": 2,
-    "TE_Code": "AB",
-    "Approval_Date": "Dec 18, 2015",
+    "Appl_No": 206319,
+    "Product_No": 1,
+    "TE_Code": "AP",
+    "Approval_Date": "Nov 13, 2015",
     "RLD": "No",
     "RS": "No",
     "Type": "RX",
-    "Applicant_Full_Name": "LUPIN LTD"
+    "Applicant_Full_Name": "DECATUR MEMORIAL HOSP"
 }

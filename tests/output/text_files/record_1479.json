@@ -1,16 +1,16 @@
 {
-    "Ingredient": "PHENDIMETRAZINE TARTRATE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "SPRX-105",
-    "Applicant": "NUMARK",
-    "Strength": "105MG",
-    "Appl_Type": "A",
-    "Appl_No": 88024,
+    "Ingredient": "DAPTOMYCIN",
+    "DF;Route": "POWDER;INTRAVENOUS",
+    "Trade_Name": "CUBICIN",
+    "Applicant": "CUBIST PHARMS LLC",
+    "Strength": "250MG/VIAL **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**",
+    "Appl_Type": "N",
+    "Appl_No": 21572,
     "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Dec 22, 1982",
+    "Approval_Date": "Sep 12, 2003",
     "RLD": "No",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "NUMARK LABORATORIES INC"
+    "Applicant_Full_Name": "CUBIST PHARMACEUTICALS LLC"
 }

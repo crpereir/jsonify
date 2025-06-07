@@ -1,16 +1,16 @@
 {
-    "Ingredient": "DILTIAZEM HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "DILACOR XR",
-    "Applicant": "ALLERGAN",
-    "Strength": "240MG **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**",
+    "Ingredient": "AMINO ACIDS; MAGNESIUM CHLORIDE; POTASSIUM CHLORIDE; SODIUM CHLORIDE; SODIUM PHOSPHATE, DIBASIC, HEPTAHYDRATE",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "AMINOSYN II 3.5% M",
+    "Applicant": "ICU MEDICAL INC",
+    "Strength": "3.5%;30MG/100ML;97MG/100ML;120MG/100ML;49MG/100ML",
     "Appl_Type": "N",
-    "Appl_No": 20092,
-    "Product_No": 3,
+    "Appl_No": 19437,
+    "Product_No": 7,
     "TE_Code": null,
-    "Approval_Date": "May 29, 1992",
-    "RLD": "Yes",
+    "Approval_Date": "Apr 3, 1986",
+    "RLD": "No",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "ALLERGAN SALES LLC"
+    "Applicant_Full_Name": "ICU MEDICAL INC"
 }

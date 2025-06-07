@@ -1,16 +1,16 @@
 {
-    "Ingredient": "TROSPIUM CHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "SANCTURA XR",
-    "Applicant": "ALLERGAN",
-    "Strength": "60MG **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**",
+    "Ingredient": "ZIPRASIDONE MESYLATE",
+    "DF;Route": "POWDER;INTRAMUSCULAR",
+    "Trade_Name": "GEODON",
+    "Applicant": "VIATRIS",
+    "Strength": "EQ 20MG BASE/VIAL",
     "Appl_Type": "N",
-    "Appl_No": 22103,
+    "Appl_No": 20919,
     "Product_No": 1,
-    "TE_Code": null,
-    "Approval_Date": "Aug 3, 2007",
+    "TE_Code": "AP",
+    "Approval_Date": "Jun 21, 2002",
     "RLD": "Yes",
-    "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "ALLERGAN INC"
+    "RS": "Yes",
+    "Type": "RX",
+    "Applicant_Full_Name": "VIATRIS SPECIALTY LLC"
 }

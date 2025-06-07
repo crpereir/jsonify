@@ -1,16 +1,16 @@
 {
-    "Ingredient": "DILTIAZEM HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "DILTIAZEM HYDROCHLORIDE",
-    "Applicant": "ACCORD HLTHCARE",
-    "Strength": "240MG",
+    "Ingredient": "AMMONIUM CHLORIDE",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "AMMONIUM CHLORIDE",
+    "Applicant": "ABBOTT",
+    "Strength": "5MEQ/ML",
     "Appl_Type": "A",
-    "Appl_No": 206997,
-    "Product_No": 3,
-    "TE_Code": "AB2",
-    "Approval_Date": "Apr 28, 2020",
+    "Appl_No": 83130,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "Approved Prior to Jan 1, 1982",
     "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "ACCORD HEALTHCARE INC"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "ABBOTT LABORATORIES PHARMACEUTICAL PRODUCTS DIV"
 }

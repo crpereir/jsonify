@@ -1,16 +1,16 @@
 {
-    "Ingredient": "BENZONATATE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "BENZONATATE",
-    "Applicant": "HERITAGE PHARMS LABS",
-    "Strength": "200MG",
+    "Ingredient": "DISULFIRAM",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "ANTABUSE",
+    "Applicant": "ODYSSEY PHARMS",
+    "Strength": "250MG",
     "Appl_Type": "A",
-    "Appl_No": 40682,
-    "Product_No": 2,
-    "TE_Code": "AA",
-    "Approval_Date": "Jul 30, 2007",
-    "RLD": "No",
+    "Appl_No": 88482,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "Dec 8, 1983",
+    "RLD": "Yes",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "HERITAGE PHARMACEUTICALS LABS INC DBA AVET PHARMACEUTICALS LABS INC"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "ODYSSEY PHARMACEUTICALS INC"
 }

@@ -1,16 +1,16 @@
 {
-    "Ingredient": "DILTIAZEM HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "DILTIAZEM HYDROCHLORIDE",
-    "Applicant": "VALEANT PHARMS NORTH",
-    "Strength": "300MG",
-    "Appl_Type": "A",
-    "Appl_No": 75116,
-    "Product_No": 4,
-    "TE_Code": "AB3",
-    "Approval_Date": "Dec 23, 1999",
+    "Ingredient": "TECHNETIUM TC-99M ETIDRONATE KIT",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "CINTICHEM TECHNETIUM 99M HEDSPA",
+    "Applicant": "GE HEALTHCARE",
+    "Strength": null,
+    "Appl_Type": "N",
+    "Appl_No": 17653,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "Approved Prior to Jan 1, 1982",
     "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "VALEANT PHARMACEUTICALS NORTH AMERICA LLC"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "GE HEALTHCARE"
 }

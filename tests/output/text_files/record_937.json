@@ -1,16 +1,16 @@
 {
-    "Ingredient": "DILTIAZEM HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "DILTIAZEM HYDROCHLORIDE",
-    "Applicant": "NESHER PHARMS",
-    "Strength": "420MG",
+    "Ingredient": "CALCIUM GLUCEPTATE",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "CALCIUM GLUCEPTATE",
+    "Applicant": "ABBOTT",
+    "Strength": "EQ 90MG CALCIUM/5ML",
     "Appl_Type": "A",
-    "Appl_No": 76563,
+    "Appl_No": 80001,
     "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Sep 12, 2006",
-    "RLD": "No",
+    "Approval_Date": "Approved Prior to Jan 1, 1982",
+    "RLD": "Yes",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "NESHER PHARMACEUTICALS USA LLC"
+    "Applicant_Full_Name": "ABBOTT LABORATORIES PHARMACEUTICAL PRODUCTS DIV"
 }

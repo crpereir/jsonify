@@ -1,16 +1,16 @@
 {
-    "Ingredient": "PROPAFENONE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "PROPAFENONE HYDROCHLORIDE",
-    "Applicant": "MYLAN",
-    "Strength": "425MG",
-    "Appl_Type": "A",
-    "Appl_No": 203803,
-    "Product_No": 3,
+    "Ingredient": "SUMATRIPTAN SUCCINATE",
+    "DF;Route": "INJECTABLE;SUBCUTANEOUS",
+    "Trade_Name": "ALSUMA",
+    "Applicant": "MERIDIAN MEDCL",
+    "Strength": "EQ 6MG BASE/0.5ML (EQ 12MG BASE/ML)",
+    "Appl_Type": "N",
+    "Appl_No": 22377,
+    "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Apr 29, 2016",
+    "Approval_Date": "Jun 29, 2010",
     "RLD": "No",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "MYLAN PHARMACEUTICALS INC"
+    "Applicant_Full_Name": "MERIDIAN MEDICAL TECHNOLOGIES INC SUB KING PHARMACEUTICALS INC"
 }

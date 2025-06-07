@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CLINDAMYCIN HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CLINDAMYCIN HYDROCHLORIDE",
-    "Applicant": "ZYDUS PHARMS USA",
-    "Strength": "EQ 75MG BASE",
+    "Ingredient": "TETRABENAZINE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "TETRABENAZINE",
+    "Applicant": "ACTAVIS LABS FL INC",
+    "Strength": "25MG",
     "Appl_Type": "A",
-    "Appl_No": 65217,
+    "Appl_No": 206686,
     "Product_No": 1,
     "TE_Code": "AB",
-    "Approval_Date": "Jan 31, 2005",
+    "Approval_Date": "Jul 7, 2017",
     "RLD": "No",
     "RS": "No",
     "Type": "RX",
-    "Applicant_Full_Name": "ZYDUS PHARMACEUTICALS USA INC"
+    "Applicant_Full_Name": "ACTAVIS LABORATORIES FL INC"
 }

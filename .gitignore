@@ -9,6 +9,7 @@ tests/__pycache__/
 venv/
 .env/
 .envrc
+.venv/
 
 # Editor/IDE files
 .vscode/

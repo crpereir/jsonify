@@ -1,16 +1,16 @@
 {
-    "Ingredient": "VENLAFAXINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "VENLAFAXINE HYDROCHLORIDE",
-    "Applicant": "GRANULES",
-    "Strength": "EQ 150MG BASE",
+    "Ingredient": "CARBACHOL",
+    "DF;Route": "SOLUTION;INTRAOCULAR",
+    "Trade_Name": "CARBACHOL",
+    "Applicant": "PHARMAFAIR",
+    "Strength": "0.01%",
     "Appl_Type": "A",
-    "Appl_No": 217390,
-    "Product_No": 3,
-    "TE_Code": "AB",
-    "Approval_Date": "May 18, 2023",
+    "Appl_No": 70292,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "May 21, 1986",
     "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "GRANULES INDIA LTD"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "PHARMAFAIR INC"
 }

@@ -1,16 +1,16 @@
 {
-    "Ingredient": "LEVOMILNACIPRAN HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "LEVOMILNACIPRAN HYDROCHLORIDE",
-    "Applicant": "AMNEAL PHARMS CO",
-    "Strength": "EQ 120MG BASE",
-    "Appl_Type": "A",
-    "Appl_No": 210790,
-    "Product_No": 4,
+    "Ingredient": "TINZAPARIN SODIUM",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "INNOHEP",
+    "Applicant": "LEO PHARMA AS",
+    "Strength": "20,000 IU/ML",
+    "Appl_Type": "N",
+    "Appl_No": 20484,
+    "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Feb 4, 2019",
+    "Approval_Date": "Jul 14, 2000",
     "RLD": "No",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "AMNEAL PHARMACEUTICALS CO GMBH"
+    "Applicant_Full_Name": "LEO PHARMA AS"
 }

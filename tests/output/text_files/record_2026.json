@@ -1,16 +1,16 @@
 {
-    "Ingredient": "ATAZANAVIR SULFATE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "ATAZANAVIR SULFATE",
-    "Applicant": "ZYDUS PHARMS",
-    "Strength": "EQ 300MG BASE",
-    "Appl_Type": "A",
-    "Appl_No": 210575,
-    "Product_No": 3,
+    "Ingredient": "LINAGLIPTIN; METFORMIN HYDROCHLORIDE",
+    "DF;Route": "TABLET, EXTENDED RELEASE;ORAL",
+    "Trade_Name": "JENTADUETO XR",
+    "Applicant": "BOEHRINGER INGELHEIM",
+    "Strength": "2.5MG;1GM",
+    "Appl_Type": "N",
+    "Appl_No": 208026,
+    "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Jun 4, 2020",
-    "RLD": "No",
+    "Approval_Date": "May 27, 2016",
+    "RLD": "Yes",
     "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "ZYDUS PHARMACEUTICALS USA INC"
+    "Type": "RX",
+    "Applicant_Full_Name": "BOEHRINGER INGELHEIM PHARMACEUTICALS INC"
 }

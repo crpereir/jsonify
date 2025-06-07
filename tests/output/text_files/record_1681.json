@@ -1,16 +1,16 @@
 {
-    "Ingredient": "PHENDIMETRAZINE TARTRATE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "X-TROZINE L.A.",
-    "Applicant": "SHIRE RICHWOOD",
-    "Strength": "105MG",
-    "Appl_Type": "A",
-    "Appl_No": 87371,
+    "Ingredient": "DIFELIKEFALIN ACETATE",
+    "DF;Route": "SOLUTION;INTRAVENOUS",
+    "Trade_Name": "KORSUVA",
+    "Applicant": "CARA THERAP",
+    "Strength": "EQ 0.065MG BASE/1.3ML (EQ 0.05MG BASE/ML)",
+    "Appl_Type": "N",
+    "Appl_No": 214916,
     "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Aug 24, 1982",
-    "RLD": "No",
-    "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "SHIRE RICHWOOD INC"
+    "Approval_Date": "Aug 23, 2021",
+    "RLD": "Yes",
+    "RS": "Yes",
+    "Type": "RX",
+    "Applicant_Full_Name": "CARA THERAPEUTICS INC"
 }

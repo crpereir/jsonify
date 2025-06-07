@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CHLORPROMAZINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "THORAZINE",
-    "Applicant": "GLAXOSMITHKLINE",
-    "Strength": "30MG",
+    "Ingredient": "CEFTOBIPROLE MEDOCARIL SODIUM",
+    "DF;Route": "POWDER;INTRAVENOUS",
+    "Trade_Name": "ZEVTERA",
+    "Applicant": "ISTX",
+    "Strength": "667MG/VIAL",
     "Appl_Type": "N",
-    "Appl_No": 11120,
-    "Product_No": 16,
+    "Appl_No": 218275,
+    "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Approved Prior to Jan 1, 1982",
-    "RLD": "No",
+    "Approval_Date": "Apr 3, 2024",
+    "RLD": "Yes",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "GLAXOSMITHKLINE"
+    "Applicant_Full_Name": "ISTX LLC"
 }

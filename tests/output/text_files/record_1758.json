@@ -1,16 +1,16 @@
 {
-    "Ingredient": "TETRACYCLINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "ACHROMYCIN V",
-    "Applicant": "AVET",
-    "Strength": "500MG **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**",
+    "Ingredient": "GUAIFENESIN; HYDROCODONE BITARTRATE",
+    "DF;Route": "SOLUTION;ORAL",
+    "Trade_Name": "FLOWTUSS",
+    "Applicant": "CHARTWELL RX",
+    "Strength": "200MG/5ML;2.5MG/5ML",
     "Appl_Type": "N",
-    "Appl_No": 50278,
+    "Appl_No": 22424,
     "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Approved Prior to Jan 1, 1982",
-    "RLD": "Yes",
+    "TE_Code": null,
+    "Approval_Date": "May 14, 2015",
+    "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "AVET PHARMACEUTICALS INC"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "CHARTWELL RX SCIENCES LLC"
 }

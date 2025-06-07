@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CLINDAMYCIN HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CLEOCIN HYDROCHLORIDE",
-    "Applicant": "PFIZER",
-    "Strength": "EQ 75MG BASE",
+    "Ingredient": "PHENAZOPYRIDINE HYDROCHLORIDE; SULFAMETHOXAZOLE; TRIMETHOPRIM",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "SULFAMETHOXAZOLE AND TRIMETHOPRIM AND PHENAZOPYRIDINE HYDROCHLORIDE",
+    "Applicant": "ABLE",
+    "Strength": "200MG,N/A,N/A;N/A,800MG,160MG",
     "Appl_Type": "N",
-    "Appl_No": 50162,
+    "Appl_No": 21105,
     "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Approved Prior to Jan 1, 1982",
-    "RLD": "Yes",
+    "TE_Code": null,
+    "Approval_Date": "Jun 26, 2001",
+    "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "PFIZER INC"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "ABLE LABORATORIES INC"
 }

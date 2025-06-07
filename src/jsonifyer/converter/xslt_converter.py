@@ -14,10 +14,7 @@ if not logger.hasHandlers():
 
 def apply_xslt_to_xml(xml_file: str, repeated_file: str, xslt_file: str) -> dict:
     try:
-        if not os.path.exists(xml_file):
-            return {}
-            
-        if not os.path.exists(xslt_file):
+        if not os.path.exists(xml_file) or not os.path.exists(xslt_file):
             return {}
 
         try:
@@ -60,26 +57,6 @@ def apply_xslt_to_xml(xml_file: str, repeated_file: str, xslt_file: str) -> dict
             
     except Exception as e:
         return {}
-
-# ----------------------------------------------------------------------------------------
-
-def check_null_and_empty_fields(json_data):
-    null_or_empty_fields = []
-
-    def recursive_check(data, parent_key=""):
-        if isinstance(data, dict):
-            for key, value in data.items():
-                full_key = f"{parent_key}.{key}" if parent_key else key
-                if value is None or (isinstance(value, list) and not value):
-                    null_or_empty_fields.append(full_key)
-                else:
-                    recursive_check(value, full_key)
-        elif isinstance(data, list):
-            for index, item in enumerate(data):
-                recursive_check(item, f"{parent_key}[{index}]")
-
-    recursive_check(json_data)
-    return null_or_empty_fields
 
 # ----------------------------------------------------------------------------------------
 
@@ -136,3 +113,25 @@ def process_folder_with_xslt(input_folder, output_folder, log_file, unconverted_
     print(f"Unconverted files in {unconverted_log_file}")
     print(f"Total of JSON files converted: {converted_count}")
     print(f"Total of unconverted files: {len(unconverted_files)}")
+
+
+
+# ----------------------------------------------------------------------------------------
+
+def check_null_and_empty_fields(json_data):
+    null_or_empty_fields = []
+
+    def recursive_check(data, parent_key=""):
+        if isinstance(data, dict):
+            for key, value in data.items():
+                full_key = f"{parent_key}.{key}" if parent_key else key
+                if value is None or (isinstance(value, list) and not value):
+                    null_or_empty_fields.append(full_key)
+                else:
+                    recursive_check(value, full_key)
+        elif isinstance(data, list):
+            for index, item in enumerate(data):
+                recursive_check(item, f"{parent_key}[{index}]")
+
+    recursive_check(json_data)
+    return null_or_empty_fields

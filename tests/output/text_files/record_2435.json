@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CEPHALEXIN",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CEPHALEXIN",
-    "Applicant": "LUPIN",
-    "Strength": "EQ 500MG BASE",
-    "Appl_Type": "A",
-    "Appl_No": 65229,
-    "Product_No": 2,
-    "TE_Code": "AB",
-    "Approval_Date": "Nov 25, 2005",
+    "Ingredient": "LOMEFLOXACIN HYDROCHLORIDE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "MAXAQUIN",
+    "Applicant": "PHARMACIA",
+    "Strength": "EQ 400MG BASE",
+    "Appl_Type": "N",
+    "Appl_No": 20013,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "Feb 21, 1992",
     "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "LUPIN LTD"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "PHARMACIA CORP"
 }

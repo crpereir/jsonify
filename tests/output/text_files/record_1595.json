@@ -1,16 +1,16 @@
 {
-    "Ingredient": "PSEUDOEPHEDRINE HYDROCHLORIDE; TRIPROLIDINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "TRIPROLIDINE AND PSEUDOEPHEDRINE HYDROCHLORIDES",
-    "Applicant": "KV PHARM",
-    "Strength": "120MG;5MG",
+    "Ingredient": "PREDNISOLONE SODIUM PHOSPHATE; SULFACETAMIDE SODIUM",
+    "DF;Route": "SOLUTION/DROPS;OPHTHALMIC",
+    "Trade_Name": "SULFACETAMIDE SODIUM AND PREDNISOLONE SODIUM PHOSPHATE",
+    "Applicant": "BAUSCH AND LOMB",
+    "Strength": "EQ 0.23% PHOSPHATE;10%",
     "Appl_Type": "A",
-    "Appl_No": 71798,
+    "Appl_No": 74449,
     "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Mar 16, 1989",
+    "Approval_Date": "Dec 29, 1995",
     "RLD": "No",
-    "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "KV PHARMACEUTICAL CO"
+    "RS": "Yes",
+    "Type": "RX",
+    "Applicant_Full_Name": "BAUSCH AND LOMB INC"
 }

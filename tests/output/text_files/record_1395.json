@@ -1,16 +1,16 @@
 {
-    "Ingredient": "PROPAFENONE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "PROPAFENONE HYDROCHLORIDE",
-    "Applicant": "ZYDUS LIFESCIENCES",
-    "Strength": "425MG",
+    "Ingredient": "SELENIUM SULFIDE",
+    "DF;Route": "LOTION/SHAMPOO;TOPICAL",
+    "Trade_Name": "EXSEL",
+    "Applicant": "ALLERGAN HERBERT",
+    "Strength": "2.5%",
     "Appl_Type": "A",
-    "Appl_No": 214184,
-    "Product_No": 3,
-    "TE_Code": "AB",
-    "Approval_Date": "Apr 21, 2021",
+    "Appl_No": 83892,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "Approved Prior to Jan 1, 1982",
     "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "ZYDUS LIFESCIENCES GLOBAL FZE"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "ALLERGAN HERBERT DIV ALLERGAN INC"
 }

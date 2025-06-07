@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CEVIMELINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CEVIMELINE HYDROCHLORIDE",
-    "Applicant": "AUROBINDO PHARMA",
-    "Strength": "30MG",
-    "Appl_Type": "A",
-    "Appl_No": 215056,
+    "Ingredient": "DIENOGEST; ESTRADIOL VALERATE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "NATAZIA",
+    "Applicant": "BAYER HLTHCARE",
+    "Strength": "N/A,2MG,3MG,N/A,N/A;3MG,2MG,2MG,1MG,N/A",
+    "Appl_Type": "N",
+    "Appl_No": 22252,
     "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Apr 18, 2023",
-    "RLD": "No",
-    "RS": "No",
+    "TE_Code": null,
+    "Approval_Date": "May 6, 2010",
+    "RLD": "Yes",
+    "RS": "Yes",
     "Type": "RX",
-    "Applicant_Full_Name": "AUROBINDO PHARMA LTD"
+    "Applicant_Full_Name": "BAYER HEALTHCARE PHARMACEUTICALS INC"
 }

@@ -1,16 +1,16 @@
 {
-    "Ingredient": "ISOTRETINOIN",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "ABSORICA LD",
-    "Applicant": "SUN PHARM",
-    "Strength": "32MG",
+    "Ingredient": "OMIDENEPAG ISOPROPYL",
+    "DF;Route": "SOLUTION;OPHTHALMIC",
+    "Trade_Name": "OMLONTI",
+    "Applicant": "OCUVEX THERAP",
+    "Strength": "0.002%",
     "Appl_Type": "N",
-    "Appl_No": 211913,
-    "Product_No": 6,
+    "Appl_No": 215092,
+    "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Nov 5, 2019",
+    "Approval_Date": "Sep 22, 2022",
     "RLD": "Yes",
-    "RS": "Yes",
-    "Type": "RX",
-    "Applicant_Full_Name": "SUN PHARMACEUTICAL INDUSTRIES LTD"
+    "RS": "No",
+    "Type": "DISCN",
+    "Applicant_Full_Name": "OCUVEX THERAPEUTICS INC"
 }

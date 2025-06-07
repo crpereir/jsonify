@@ -1,16 +1,16 @@
 {
-    "Ingredient": "DEXTROAMPHETAMINE SULFATE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "DEXTROAMPHETAMINE SULFATE",
-    "Applicant": "ACTAVIS ELIZABETH",
-    "Strength": "15MG",
-    "Appl_Type": "A",
-    "Appl_No": 203901,
-    "Product_No": 3,
-    "TE_Code": "AB",
-    "Approval_Date": "Nov 30, 2012",
+    "Ingredient": "BIPERIDEN LACTATE",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "AKINETON",
+    "Applicant": "ABBVIE",
+    "Strength": "5MG/ML",
+    "Appl_Type": "N",
+    "Appl_No": 12418,
+    "Product_No": 2,
+    "TE_Code": null,
+    "Approval_Date": "Approved Prior to Jan 1, 1982",
     "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "ACTAVIS ELIZABETH LLC"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "ABBVIE INC"
 }

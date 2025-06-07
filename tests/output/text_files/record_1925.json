@@ -1,16 +1,16 @@
 {
-    "Ingredient": "AMOXICILLIN",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "AMOXICILLIN",
-    "Applicant": "TEVA",
-    "Strength": "500MG",
-    "Appl_Type": "A",
-    "Appl_No": 61926,
-    "Product_No": 3,
-    "TE_Code": "AB",
-    "Approval_Date": "Approved Prior to Jan 1, 1982",
-    "RLD": "No",
+    "Ingredient": "SOLIFENACIN SUCCINATE",
+    "DF;Route": "SUSPENSION;ORAL",
+    "Trade_Name": "VESICARE LS",
+    "Applicant": "ASTELLAS",
+    "Strength": "1MG/ML",
+    "Appl_Type": "N",
+    "Appl_No": 209529,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "May 26, 2020",
+    "RLD": "Yes",
     "RS": "Yes",
     "Type": "RX",
-    "Applicant_Full_Name": "TEVA PHARMACEUTICALS USA INC"
+    "Applicant_Full_Name": "ASTELLAS PHARMA US INC"
 }

@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CEPHALEXIN",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CEPHALEXIN",
-    "Applicant": "LUPIN",
-    "Strength": "EQ 250MG BASE",
-    "Appl_Type": "A",
-    "Appl_No": 65229,
+    "Ingredient": "TRANDOLAPRIL",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "MAVIK",
+    "Applicant": "ABBVIE",
+    "Strength": "1MG **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**",
+    "Appl_Type": "N",
+    "Appl_No": 20528,
     "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Nov 25, 2005",
-    "RLD": "No",
+    "TE_Code": null,
+    "Approval_Date": "Apr 26, 1996",
+    "RLD": "Yes",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "LUPIN LTD"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "ABBVIE INC"
 }

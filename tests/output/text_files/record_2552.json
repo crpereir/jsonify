@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CHLORDIAZEPOXIDE HYDROCHLORIDE; CLIDINIUM BROMIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CHLORDIAZEPOXIDE HYDROCHLORIDE AND CLIDINIUM BROMIDE",
-    "Applicant": "COREPHARMA",
-    "Strength": "5MG;2.5MG",
-    "Appl_Type": "A",
-    "Appl_No": 215453,
+    "Ingredient": "LEVOKETOCONAZOLE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "RECORLEV",
+    "Applicant": "STRONGBRIDGE",
+    "Strength": "150MG",
+    "Appl_Type": "N",
+    "Appl_No": 214133,
     "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Jul 29, 2022",
-    "RLD": "No",
-    "RS": "No",
+    "TE_Code": null,
+    "Approval_Date": "Dec 30, 2021",
+    "RLD": "Yes",
+    "RS": "Yes",
     "Type": "RX",
-    "Applicant_Full_Name": "COREPHARMA LLC"
+    "Applicant_Full_Name": "STRONGBRIDGE DUBLIN LTD"
 }

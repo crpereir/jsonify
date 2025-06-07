@@ -1,16 +1,16 @@
 {
-    "Ingredient": "THEOPHYLLINE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "THEOPHYLLINE",
-    "Applicant": "SANDOZ",
-    "Strength": "260MG",
-    "Appl_Type": "A",
-    "Appl_No": 87462,
+    "Ingredient": "ERAVACYCLINE DIHYDROCHLORIDE",
+    "DF;Route": "POWDER;INTRAVENOUS",
+    "Trade_Name": "XERAVA",
+    "Applicant": "TETRAPHASE PHARMS",
+    "Strength": "EQ 50MG BASE/VIAL",
+    "Appl_Type": "N",
+    "Appl_No": 211109,
     "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "May 11, 1982",
-    "RLD": "No",
-    "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "SANDOZ INC"
+    "Approval_Date": "Aug 27, 2018",
+    "RLD": "Yes",
+    "RS": "Yes",
+    "Type": "RX",
+    "Applicant_Full_Name": "TETRAPHASE PHARMACEUTICALS INC"
 }

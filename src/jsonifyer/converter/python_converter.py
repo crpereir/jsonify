@@ -189,7 +189,6 @@ def parse_xml_to_json(
                         result[tag] = element.text.strip() if element.text else None
     
     else:
-        # Se nenhum field_map ou fields for especificado, converte todo o XML
         result = extract_element_data(root)
     
     return result
@@ -235,43 +234,7 @@ def convert_csv(
     print(f"Created {len(created_files)} JSON files in {output_dir}")
     return created_files
 
-def convert_txt(
-    input_file: str,
-    output_dir: str,
-    field_map: Dict[str, str]
-) -> List[str]:
 
-    output_path = Path(output_dir)
-    output_path.mkdir(parents=True, exist_ok=True)
-    
-    created_files = []
-    
-    with open(input_file, 'r', encoding='utf-8') as f:
-        content = f.read()
-    
-    sections = re.split(r'\n\s*\n', content)
-    
-    for i, section in enumerate(sections):
-        if not section.strip():  
-            continue
-            
-        record = {}
-        for field_name, pattern in field_map.items():
-            match = re.search(pattern, section, re.MULTILINE)
-            if match:
-                if len(match.groups()) > 0:
-                    record[field_name] = match.group(1).strip()
-                else:
-                    record[field_name] = match.group(0).strip()
-        
-        if record and len(record) > 1:  
-            output_file = output_path / f"record_{i+1}.json"
-            with open(output_file, 'w', encoding='utf-8') as out_f:
-                json.dump(record, out_f, indent=4, ensure_ascii=False)
-            created_files.append(str(output_file))
-    
-    print(f"Created {len(created_files)} JSON files in {output_dir}")
-    return created_files
 
 def check_null_fields(json_data: Dict) -> List[str]:
     null_fields = []
@@ -290,43 +253,7 @@ def check_null_fields(json_data: Dict) -> List[str]:
     recursive_check(json_data)
     return null_fields
 
-def convert_xml(
-    input_file: str,
-    output_dir: Optional[str] = None,
-    mode: str = 'python',
-    xslt_file: Optional[str] = None,
-    field_map: Optional[Dict[str, str]] = None,
-    fields: Optional[List[str]] = None,
-    namespaces: Optional[Dict[str, str]] = None,
-    root_tag: Optional[str] = None
-) -> Dict[str, Any]:
 
-    if mode == 'python':
-        result = parse_xml_to_json(
-            input_file,
-            field_map=field_map,
-            fields=fields,
-            namespaces=namespaces,
-            root_tag=root_tag
-        )
-    elif mode == 'xslt':
-        if not xslt_file:
-            raise ValueError("xslt_file is required when mode is 'xslt'")
-        try:
-            result = apply_xslt_to_xml(input_file, xslt_file)
-        except Exception as e:
-            raise
-    else:
-        raise ValueError(f"Unsupported conversion mode: {mode}")
-
-    if output_dir:
-        output_path = Path(output_dir)
-        output_path.mkdir(parents=True, exist_ok=True)
-        output_file = output_path / f"{Path(input_file).stem}.json"
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(result, f, indent=4, ensure_ascii=False)
-
-    return result
 
 class PythonConverter:
     def convert_xml_structured(self, input_file: str, output_dir: str, field_map: Dict[str, str], namespaces: Optional[Dict[str, str]] = None) -> None:

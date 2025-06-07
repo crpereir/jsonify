@@ -1,16 +1,16 @@
 {
-    "Ingredient": "ACYCLOVIR",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "ACYCLOVIR",
-    "Applicant": "YILING",
-    "Strength": "200MG",
-    "Appl_Type": "A",
-    "Appl_No": 212173,
+    "Ingredient": "PASIREOTIDE DIASPARTATE",
+    "DF;Route": "SOLUTION;SUBCUTANEOUS",
+    "Trade_Name": "SIGNIFOR",
+    "Applicant": "RECORDATI RARE",
+    "Strength": "EQ 0.3MG BASE/ML (EQ 0.3MG BASE/ML)",
+    "Appl_Type": "N",
+    "Appl_No": 200677,
     "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Sep 14, 2020",
-    "RLD": "No",
+    "TE_Code": null,
+    "Approval_Date": "Dec 14, 2012",
+    "RLD": "Yes",
     "RS": "No",
     "Type": "RX",
-    "Applicant_Full_Name": "YILING PHARMACEUTICAL LTD"
+    "Applicant_Full_Name": "RECORDATI RARE DISEASES INC"
 }

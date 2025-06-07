@@ -1,16 +1,16 @@
 {
-    "Ingredient": "RESCINNAMINE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CINNASIL",
-    "Applicant": "PANRAY",
-    "Strength": "0.5MG",
-    "Appl_Type": "A",
-    "Appl_No": 84736,
+    "Ingredient": "EZETIMIBE; ROSUVASTATIN CALCIUM",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "ROSZET",
+    "Applicant": "ALTHERA PHARMS",
+    "Strength": "10MG;EQ 5MG BASE",
+    "Appl_Type": "N",
+    "Appl_No": 213072,
     "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Approved Prior to Jan 1, 1982",
-    "RLD": "No",
+    "Approval_Date": "Mar 23, 2021",
+    "RLD": "Yes",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "PANRAY CORP SUB ORMONT DRUG AND CHEMICAL CO INC"
+    "Applicant_Full_Name": "ALTHERA PHARMACEUTICALS LLC"
 }

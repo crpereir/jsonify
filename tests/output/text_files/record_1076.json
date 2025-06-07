@@ -1,16 +1,16 @@
 {
-    "Ingredient": "INDOMETHACIN",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "INDOMETHACIN",
-    "Applicant": "HETERO LABS LTD III",
-    "Strength": "75MG",
+    "Ingredient": "FLUMAZENIL",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "FLUMAZENIL",
+    "Applicant": "BAXTER HLTHCARE CORP",
+    "Strength": "0.5MG/5ML (0.1MG/ML)",
     "Appl_Type": "A",
-    "Appl_No": 201807,
-    "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Sep 28, 2012",
+    "Appl_No": 76755,
+    "Product_No": 2,
+    "TE_Code": "AP",
+    "Approval_Date": "Oct 12, 2004",
     "RLD": "No",
-    "RS": "Yes",
+    "RS": "No",
     "Type": "RX",
-    "Applicant_Full_Name": "HETERO LABS LTD UNIT III"
+    "Applicant_Full_Name": "BAXTER HEALTHCARE CORP"
 }

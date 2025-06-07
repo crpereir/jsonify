@@ -1,16 +1,16 @@
 {
-    "Ingredient": "AMLODIPINE BESYLATE; BENAZEPRIL HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "AMLODIPINE BESYLATE AND BENAZEPRIL HYDROCHLORIDE",
-    "Applicant": "STRIDES PHARMA",
-    "Strength": "EQ 2.5MG BASE;10MG",
+    "Ingredient": "ATOVAQUONE",
+    "DF;Route": "SUSPENSION;ORAL",
+    "Trade_Name": "ATOVAQUONE",
+    "Applicant": "ABHAI LLC",
+    "Strength": "750MG/5ML",
     "Appl_Type": "A",
-    "Appl_No": 78381,
+    "Appl_No": 210510,
     "Product_No": 1,
-    "TE_Code": null,
-    "Approval_Date": "Jul 29, 2010",
+    "TE_Code": "AB",
+    "Approval_Date": "May 31, 2019",
     "RLD": "No",
     "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "STRIDES PHARMA GLOBAL PTE LTD"
+    "Type": "RX",
+    "Applicant_Full_Name": "ABHAI LLC"
 }

@@ -1,16 +1,16 @@
 {
-    "Ingredient": "VENLAFAXINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "VENLAFAXINE HYDROCHLORIDE",
-    "Applicant": "TORRENT",
-    "Strength": "EQ 150MG BASE",
-    "Appl_Type": "A",
-    "Appl_No": 90899,
-    "Product_No": 3,
+    "Ingredient": "CABAZITAXEL",
+    "DF;Route": "SOLUTION;INTRAVENOUS",
+    "Trade_Name": "CABAZITAXEL",
+    "Applicant": "ACCORD HLTHCARE",
+    "Strength": "60MG/3ML (20MG/ML)",
+    "Appl_Type": "N",
+    "Appl_No": 207949,
+    "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Jun 1, 2011",
-    "RLD": "No",
+    "Approval_Date": "Dec 29, 2021",
+    "RLD": "Yes",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "TORRENT PHARMACEUTICALS LTD"
+    "Applicant_Full_Name": "ACCORD HEALTHCARE INC"
 }

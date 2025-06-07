@@ -1,16 +1,16 @@
 {
-    "Ingredient": "RAMIPRIL",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "ALTACE",
-    "Applicant": "KING PHARMS LLC",
-    "Strength": "10MG",
+    "Ingredient": "OLODATEROL HYDROCHLORIDE; TIOTROPIUM BROMIDE",
+    "DF;Route": "SPRAY, METERED;INHALATION",
+    "Trade_Name": "STIOLTO RESPIMAT",
+    "Applicant": "BOEHRINGER INGELHEIM",
+    "Strength": "EQ 0.0025MG BASE/INH;EQ 0.0025MG BASE/INH",
     "Appl_Type": "N",
-    "Appl_No": 19901,
-    "Product_No": 4,
-    "TE_Code": "AB",
-    "Approval_Date": "Jan 28, 1991",
+    "Appl_No": 206756,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "May 21, 2015",
     "RLD": "Yes",
     "RS": "Yes",
     "Type": "RX",
-    "Applicant_Full_Name": "KING PHARMACEUTICALS LLC"
+    "Applicant_Full_Name": "BOEHRINGER INGELHEIM PHARMACEUTICALS INC"
 }

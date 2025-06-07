@@ -1,16 +1,16 @@
 {
-    "Ingredient": "DEXTROAMPHETAMINE SULFATE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "DEXTROAMPHETAMINE SULFATE",
-    "Applicant": "NORVIUM BIOSCIENCE",
-    "Strength": "5MG",
+    "Ingredient": "ALPROSTADIL",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "ALPROSTADIL",
+    "Applicant": "HIKMA",
+    "Strength": "0.5MG/ML",
     "Appl_Type": "A",
-    "Appl_No": 206735,
+    "Appl_No": 74815,
     "Product_No": 1,
-    "TE_Code": null,
-    "Approval_Date": "Jan 27, 2016",
+    "TE_Code": "AP",
+    "Approval_Date": "Jan 20, 1998",
     "RLD": "No",
     "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "NORVIUM BIOSCIENCE LLC"
+    "Type": "RX",
+    "Applicant_Full_Name": "HIKMA PHARMACEUTICALS USA INC"
 }

@@ -1,16 +1,16 @@
 {
-    "Ingredient": "ISOSORBIDE DINITRATE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "ISORDIL",
-    "Applicant": "WYETH AYERST",
-    "Strength": "40MG",
+    "Ingredient": "SULFISOXAZOLE DIOLAMINE",
+    "DF;Route": "INJECTABLE;INJECTION",
+    "Trade_Name": "GANTRISIN",
+    "Applicant": "ROCHE",
+    "Strength": "EQ 400MG BASE/ML",
     "Appl_Type": "N",
-    "Appl_No": 12882,
-    "Product_No": 2,
+    "Appl_No": 6917,
+    "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Jul 29, 1988",
+    "Approval_Date": "Approved Prior to Jan 1, 1982",
     "RLD": "No",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "WYETH AYERST LABORATORIES"
+    "Applicant_Full_Name": "HOFFMANN LA ROCHE INC"
 }

@@ -1,16 +1,16 @@
 {
-    "Ingredient": "THEOPHYLLINE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "THEO-DUR",
-    "Applicant": "SCHERING",
-    "Strength": "200MG",
-    "Appl_Type": "A",
-    "Appl_No": 87995,
-    "Product_No": 1,
+    "Ingredient": "PEMETREXED DITROMETHAMINE",
+    "DF;Route": "POWDER;INTRAVENOUS",
+    "Trade_Name": "PEMETREXED DITROMETHAMINE",
+    "Applicant": "HOSPIRA",
+    "Strength": "EQ 1GM BASE/VIAL",
+    "Appl_Type": "N",
+    "Appl_No": 208746,
+    "Product_No": 3,
     "TE_Code": null,
-    "Approval_Date": "Sep 10, 1985",
-    "RLD": "No",
+    "Approval_Date": "Jun 10, 2022",
+    "RLD": "Yes",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "SCHERING CORP"
+    "Applicant_Full_Name": "HOSPIRA INC"
 }

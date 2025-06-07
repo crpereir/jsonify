@@ -96,8 +96,8 @@ def test_convert_txt_vulcanoes(test_env):
 
 def test_convert_xml_vulcanoes_full(test_env):
     dir_manager = test_env
-    input_file = dir_manager.get_input_dir('xml') / 'vulcanoes.xml'
-    output_file = dir_manager.get_output_dir('xml') / 'vulcanoes_full.json'
+    input_file = dir_manager.get_input_dir('xml/volcanos')
+    output_file = dir_manager.get_output_dir('xml/volcanos')
 
     field_map = {
         'name': './/name',
@@ -214,17 +214,20 @@ def test_convert_xml_vulcanoes_parts(test_env):
 
 def test_convert_xml_vulcanoes_auto(test_env):
     dir_manager = test_env
-    input_file = dir_manager.get_input_dir('xml') / 'vulcanoes.xml'
-    output_file = dir_manager.get_output_dir('xml') / 'vulcanoes_auto.json'
+    input_dir = dir_manager.get_input_dir('xml') / "volcanos"
+    output_dir = dir_manager.get_output_dir('xml') / "volcanos"
 
     # Convert the entire XML file without specifying fields
     result = convert_xml(
-        file_path=str(input_file),
+        str(input_dir),
+        "blah.bloah",
+        "name",
+        str(output_dir),
         converter="python",
-        output_dir=str(output_file.parent)
     )
 
     output_file.parent.mkdir(parents=True, exist_ok=True)
+    output_file = output_dir / 'vulcanoes_auto.json'
 
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(result, f, indent=4, ensure_ascii=False)

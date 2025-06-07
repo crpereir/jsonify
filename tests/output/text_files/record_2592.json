@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CLINDAMYCIN HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CLINDAMYCIN HYDROCHLORIDE",
-    "Applicant": "EPIC PHARMA LLC",
-    "Strength": "EQ 300MG BASE",
-    "Appl_Type": "A",
-    "Appl_No": 65194,
-    "Product_No": 2,
-    "TE_Code": "AB",
-    "Approval_Date": "Mar 22, 2004",
-    "RLD": "No",
+    "Ingredient": "OSIMERTINIB MESYLATE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "TAGRISSO",
+    "Applicant": "ASTRAZENECA",
+    "Strength": "EQ 40MG BASE",
+    "Appl_Type": "N",
+    "Appl_No": 208065,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "Nov 13, 2015",
+    "RLD": "Yes",
     "RS": "No",
     "Type": "RX",
-    "Applicant_Full_Name": "EPIC PHARMA LLC"
+    "Applicant_Full_Name": "ASTRAZENECA PHARMACEUTICALS LP"
 }

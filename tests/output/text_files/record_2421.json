@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CEPHALEXIN",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CEPHALEXIN",
-    "Applicant": "AUROBINDO PHARMA",
-    "Strength": "EQ 750MG BASE",
-    "Appl_Type": "A",
-    "Appl_No": 65253,
-    "Product_No": 3,
+    "Ingredient": "TIPIRACIL HYDROCHLORIDE; TRIFLURIDINE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "LONSURF",
+    "Applicant": "TAIHO ONCOLOGY",
+    "Strength": "EQ 6.14MG BASE;15MG",
+    "Appl_Type": "N",
+    "Appl_No": 207981,
+    "Product_No": 1,
     "TE_Code": "AB",
-    "Approval_Date": "Dec 6, 2023",
-    "RLD": "No",
+    "Approval_Date": "Sep 22, 2015",
+    "RLD": "Yes",
     "RS": "No",
     "Type": "RX",
-    "Applicant_Full_Name": "AUROBINDO PHARMA LTD"
+    "Applicant_Full_Name": "TAIHO ONCOLOGY INC"
 }

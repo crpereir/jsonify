@@ -1,16 +1,16 @@
 {
-    "Ingredient": "TOLTERODINE TARTRATE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "TOLTERODINE TARTRATE",
-    "Applicant": "UTOPIC PHARMS",
-    "Strength": "4MG",
+    "Ingredient": "TIMOLOL MALEATE",
+    "DF;Route": "SOLUTION, GEL FORMING/DROPS;OPHTHALMIC",
+    "Trade_Name": "TIMOLOL MALEATE",
+    "Applicant": "ALEMBIC",
+    "Strength": "EQ 0.25% BASE",
     "Appl_Type": "A",
-    "Appl_No": 213858,
-    "Product_No": 2,
+    "Appl_No": 212942,
+    "Product_No": 1,
     "TE_Code": "AB",
-    "Approval_Date": "Feb 2, 2021",
+    "Approval_Date": "Oct 22, 2020",
     "RLD": "No",
-    "RS": "No",
+    "RS": "Yes",
     "Type": "RX",
-    "Applicant_Full_Name": "UTOPIC PHARMACEUTICALS INC"
+    "Applicant_Full_Name": "ALEMBIC PHARMACEUTICALS LTD"
 }

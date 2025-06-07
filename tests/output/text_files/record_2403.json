@@ -1,16 +1,16 @@
 {
-    "Ingredient": "METHSUXIMIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CELONTIN",
-    "Applicant": "PARKE DAVIS",
-    "Strength": "300MG",
+    "Ingredient": "LAMIVUDINE; NEVIRAPINE; ZIDOVUDINE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "LAMIVUDINE, NEVIRAPINE AND ZIDOVUDINE",
+    "Applicant": "MICRO LABS",
+    "Strength": "150MG;200MG;300MG",
     "Appl_Type": "N",
-    "Appl_No": 10596,
-    "Product_No": 8,
-    "TE_Code": "AB",
-    "Approval_Date": "Approved Prior to Jan 1, 1982",
+    "Appl_No": 205626,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "Aug 13, 2018",
     "RLD": "Yes",
-    "RS": "Yes",
-    "Type": "RX",
-    "Applicant_Full_Name": "PARKE DAVIS DIV WARNER LAMBERT CO"
+    "RS": "No",
+    "Type": "DISCN",
+    "Applicant_Full_Name": "MICRO LABS LTD"
 }

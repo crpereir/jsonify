@@ -1,16 +1,16 @@
 {
-    "Ingredient": "AMLODIPINE BESYLATE; BENAZEPRIL HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "AMLODIPINE BESYLATE AND BENAZEPRIL HYDROCHLORIDE",
-    "Applicant": "DR REDDYS LABS INC",
-    "Strength": "EQ 5MG BASE;40MG",
-    "Appl_Type": "A",
-    "Appl_No": 90149,
-    "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Jul 5, 2011",
+    "Ingredient": "NEOMYCIN SULFATE; POLYMYXIN B SULFATE; PREDNISOLONE ACETATE",
+    "DF;Route": "SUSPENSION/DROPS;OPHTHALMIC",
+    "Trade_Name": "POLY-PRED",
+    "Applicant": "ALLERGAN",
+    "Strength": "EQ 0.35% BASE;10,000 UNITS/ML;0.5%",
+    "Appl_Type": "N",
+    "Appl_No": 50081,
+    "Product_No": 2,
+    "TE_Code": null,
+    "Approval_Date": "Approved Prior to Jan 1, 1982",
     "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "DR REDDYS LABORATORIES INC"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "ALLERGAN PHARMACEUTICAL"
 }

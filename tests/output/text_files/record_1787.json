@@ -1,16 +1,16 @@
 {
-    "Ingredient": "ACYCLOVIR",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "ACYCLOVIR",
-    "Applicant": "CARLSBAD TECHNOLOGY",
-    "Strength": "200MG",
-    "Appl_Type": "A",
-    "Appl_No": 206261,
+    "Ingredient": "GIVOSIRAN SODIUM",
+    "DF;Route": "SOLUTION;SUBCUTANEOUS",
+    "Trade_Name": "GIVLAARI",
+    "Applicant": "ALNYLAM PHARMS INC",
+    "Strength": "EQ 189MG BASE/ML (EQ 189MG BASE/ML)",
+    "Appl_Type": "N",
+    "Appl_No": 212194,
     "Product_No": 1,
-    "TE_Code": "AB",
-    "Approval_Date": "Aug 16, 2017",
-    "RLD": "No",
-    "RS": "No",
+    "TE_Code": null,
+    "Approval_Date": "Nov 20, 2019",
+    "RLD": "Yes",
+    "RS": "Yes",
     "Type": "RX",
-    "Applicant_Full_Name": "CARLSBAD TECHNOLOGY INC"
+    "Applicant_Full_Name": "ALNYLAM PHARMACEUTICALS INC"
 }

@@ -1,16 +1,16 @@
 {
-    "Ingredient": "ALISKIREN HEMIFUMARATE",
-    "DF;Route": "CAPSULE, PELLET;ORAL",
-    "Trade_Name": "TEKTURNA",
-    "Applicant": "NODEN PHARMA",
-    "Strength": "EQ 37.5MG BASE",
+    "Ingredient": "SELENIOUS ACID",
+    "DF;Route": "SOLUTION;INTRAVENOUS",
+    "Trade_Name": "SELENIOUS ACID",
+    "Applicant": "AM REGENT",
+    "Strength": "EQ 12MCG SELENIUM/2ML (EQ 6MCG SELENIUM/ML)",
     "Appl_Type": "N",
-    "Appl_No": 210709,
-    "Product_No": 1,
+    "Appl_No": 209379,
+    "Product_No": 3,
     "TE_Code": null,
-    "Approval_Date": "Nov 14, 2017",
+    "Approval_Date": "Aug 30, 2021",
     "RLD": "Yes",
-    "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "NODEN PHARMA DAC"
+    "RS": "Yes",
+    "Type": "RX",
+    "Applicant_Full_Name": "AMERICAN REGENT INC"
 }

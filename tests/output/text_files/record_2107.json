@@ -1,16 +1,16 @@
 {
-    "Ingredient": "DIPHENHYDRAMINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "BENADRYL",
-    "Applicant": "MCNEIL CONS",
-    "Strength": "50MG",
+    "Ingredient": "NARATRIPTAN HYDROCHLORIDE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "AMERGE",
+    "Applicant": "GLAXOSMITHKLINE LLC",
+    "Strength": "EQ 1MG BASE **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**",
     "Appl_Type": "N",
-    "Appl_No": 5845,
-    "Product_No": 1,
+    "Appl_No": 20763,
+    "Product_No": 2,
     "TE_Code": null,
-    "Approval_Date": "Approved Prior to Jan 1, 1982",
-    "RLD": "No",
+    "Approval_Date": "Feb 10, 1998",
+    "RLD": "Yes",
     "RS": "No",
     "Type": "DISCN",
-    "Applicant_Full_Name": "MCNEIL CONSUMER HEALTHCARE"
+    "Applicant_Full_Name": "GLAXOSMITHKLINE LLC"
 }

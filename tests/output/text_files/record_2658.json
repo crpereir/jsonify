@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CLOMIPRAMINE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CLOMIPRAMINE HYDROCHLORIDE",
-    "Applicant": "TEVA",
-    "Strength": "25MG",
-    "Appl_Type": "A",
-    "Appl_No": 74849,
+    "Ingredient": "PITOLISANT HYDROCHLORIDE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "WAKIX",
+    "Applicant": "HARMONY",
+    "Strength": "EQ 4.45MG BASE",
+    "Appl_Type": "N",
+    "Appl_No": 211150,
     "Product_No": 1,
     "TE_Code": null,
-    "Approval_Date": "Apr 4, 1997",
-    "RLD": "No",
+    "Approval_Date": "Aug 14, 2019",
+    "RLD": "Yes",
     "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "TEVA PHARMACEUTICALS USA INC"
+    "Type": "RX",
+    "Applicant_Full_Name": "HARMONY BIOSCIENCES MANAGEMENT INC"
 }

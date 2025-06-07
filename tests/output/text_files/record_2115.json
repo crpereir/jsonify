@@ -1,16 +1,16 @@
 {
-    "Ingredient": "BENZONATATE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "BENZONATATE",
-    "Applicant": "ASCENT PHARMS INC",
-    "Strength": "150MG",
+    "Ingredient": "AMOXAPINE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "AMOXAPINE",
+    "Applicant": "CHARTWELL RX",
+    "Strength": "25MG",
     "Appl_Type": "A",
-    "Appl_No": 211518,
+    "Appl_No": 72879,
     "Product_No": 2,
-    "TE_Code": null,
-    "Approval_Date": "Feb 22, 2019",
+    "TE_Code": "AB",
+    "Approval_Date": "Jun 28, 1991",
     "RLD": "No",
     "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "ASCENT PHARMACEUTICALS INC"
+    "Type": "RX",
+    "Applicant_Full_Name": "CHARTWELL RX SCIENCES LLC"
 }

@@ -1,16 +1,16 @@
 {
-    "Ingredient": "CEPHRADINE",
-    "DF;Route": "CAPSULE;ORAL",
-    "Trade_Name": "CEPHRADINE",
-    "Applicant": "BARR",
-    "Strength": "500MG",
+    "Ingredient": "MIDODRINE HYDROCHLORIDE",
+    "DF;Route": "TABLET;ORAL",
+    "Trade_Name": "MIDODRINE HYDROCHLORIDE",
+    "Applicant": "ALEMBIC",
+    "Strength": "2.5MG",
     "Appl_Type": "A",
-    "Appl_No": 62851,
+    "Appl_No": 214734,
     "Product_No": 1,
-    "TE_Code": null,
-    "Approval_Date": "Apr 22, 1988",
+    "TE_Code": "AB",
+    "Approval_Date": "Jan 21, 2021",
     "RLD": "No",
     "RS": "No",
-    "Type": "DISCN",
-    "Applicant_Full_Name": "BARR LABORATORIES INC"
+    "Type": "RX",
+    "Applicant_Full_Name": "ALEMBIC PHARMACEUTICALS LTD"
 }

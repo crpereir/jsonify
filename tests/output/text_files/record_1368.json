@@ -1,16 +1,16 @@
 {
-    "Ingredient": "PROPAFENONE HYDROCHLORIDE",
-    "DF;Route": "CAPSULE, EXTENDED RELEASE;ORAL",
-    "Trade_Name": "PROPAFENONE HYDROCHLORIDE",
-    "Applicant": "AUROBINDO PHARMA LTD",
-    "Strength": "425MG",
-    "Appl_Type": "A",
-    "Appl_No": 213096,
-    "Product_No": 3,
-    "TE_Code": "AB",
-    "Approval_Date": "Feb 21, 2023",
+    "Ingredient": "CONIVAPTAN HYDROCHLORIDE",
+    "DF;Route": "INJECTABLE;INTRAVENOUS",
+    "Trade_Name": "VAPRISOL",
+    "Applicant": "CUMBERLAND",
+    "Strength": "20MG/4ML (5MG/ML)",
+    "Appl_Type": "N",
+    "Appl_No": 21697,
+    "Product_No": 1,
+    "TE_Code": null,
+    "Approval_Date": "Dec 29, 2005",
     "RLD": "No",
     "RS": "No",
-    "Type": "RX",
-    "Applicant_Full_Name": "AUROBINDO PHARMA LTD"
+    "Type": "DISCN",
+    "Applicant_Full_Name": "CUMBERLAND PHARMACEUTICALS INC"
 }
