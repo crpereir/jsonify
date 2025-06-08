@@ -38,41 +38,48 @@ def convert_xml(
         if file_name.lower().endswith('.xml'):
             file_path = os.path.join(directory_path, file_name)
 
-        if converter == 'python':
-            result = convert_xml_python(
-                file_path,
-                repeated_path,
-                fields=fields,
-                namespaces=namespaces,
-                root_tag=root_tag,
-                field_map=field_map,
-                extra_fields=extra_fields,
-                pairs=pairs,
-            )
-        elif converter == 'xslt':
-            if not xslt_path:
-                raise ValueError("XSLT converter requires an XSLT file path")
-            result = convert_xml_xslt(file_path, repeated_path, xslt_path)
-        else:
-            raise ValueError(f"Unsupported XML converter: {converter}")
-        
-        print(result)
-        if repeated_path and repeated_item and result[repeated_item] is not None:
-            unique_attr = result[repeated_item]
-            if unique_attr in dumped_ids or unique_attr in new_ids:
-                continue
+            if converter == 'python':
+                result = convert_xml_python(
+                    file_path,
+                    repeated_path,
+                    fields=fields,
+                    namespaces=namespaces,
+                    root_tag=root_tag,
+                    field_map=field_map,
+                    extra_fields=extra_fields,
+                    pairs=pairs,
+                )
+            elif converter == 'xslt':
+                if not xslt_path:
+                    raise ValueError("XSLT converter requires an XSLT file path")
+                result = convert_xml_xslt(file_path, repeated_path, xslt_path)
+            else:
+                raise ValueError(f"Unsupported XML converter: {converter}")
             
-        if output_path:
-            output_dir = Path(output_path)
-            output_dir.mkdir(parents=True, exist_ok=True)
-            output_file = output_dir / f"{Path(file_path).stem}.json"
-            with open(output_file, 'w', encoding='utf-8') as f:
-                json.dump(result, f, indent=4, ensure_ascii=False)            
-            file_count += 1
+            print(result)
+            if repeated_path and repeated_item and result[repeated_item] is not None:
+                unique_attr = result[repeated_item]
+                # Handle case where unique_attr is a list of dictionaries
+                if isinstance(unique_attr, list) and len(unique_attr) > 0 and isinstance(unique_attr[0], dict):
+                    # Use the first name in the list
+                    unique_attr = unique_attr[0].get('name', '')
+                elif isinstance(unique_attr, dict) and 'name' in unique_attr:
+                    unique_attr = unique_attr['name']
+                
+                if unique_attr in dumped_ids or unique_attr in new_ids:
+                    continue
+                
+            if output_path:
+                output_dir = Path(output_path)
+                output_dir.mkdir(parents=True, exist_ok=True)
+                output_file = output_dir / f"{Path(file_path).stem}.json"
+                with open(output_file, 'w', encoding='utf-8') as f:
+                    json.dump(result, f, indent=4, ensure_ascii=False)            
+                file_count += 1
 
-            if repeated_path:
-                new_ids.append(str(unique_attr))
-            
+                if repeated_path:
+                    new_ids.append(str(unique_attr))
+                
     if new_ids and repeated_path:
         with open(repeated_path, 'a', encoding='utf-8') as f:
             for new_id in new_ids:
