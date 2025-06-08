@@ -33,7 +33,8 @@ def parse_xml_to_json(
     field_map: Optional[Dict[str, str]] = None,
     fields: Optional[List[str]] = None,
     namespaces: Optional[Dict[str, str]] = None,
-    root_tag: Optional[str] = None
+    root_tag: Optional[str] = None,
+    extra_fields: Optional[Dict[str, str]] = None,
 ) -> Dict[str, Any]:
 
     tree = ET.parse(xml_file)
@@ -41,12 +42,9 @@ def parse_xml_to_json(
     default_ns = root.tag.split('}')[0].strip('{') if '}' in root.tag else None
     
     ns_prefix = 'ns'
+    extra_ns = namespaces
     if default_ns:
-        if namespaces is None:
-            namespaces = {ns_prefix: default_ns}
-        elif '' in namespaces:
-            namespaces = {ns_prefix: namespaces['']}
-            del namespaces['']
+        namespaces = {ns_prefix: default_ns}
         
     def add_prefix(xpath):
         if default_ns:
@@ -129,6 +127,18 @@ def parse_xml_to_json(
                     result[tag] = child_data
                     
         return result
+
+    def extract_section_text(code_value):
+        for section in root.findall('.//section', extra_ns):
+            code = section.find('code', extra_ns)
+            if code is not None and code.attrib.get('code') == code_value:
+                text_elem = section.find('text', extra_ns)
+                if text_elem is not None and ''.join(text_elem.itertext()).strip():
+                    return ''.join(text_elem.itertext()).strip()
+                excerpt_elem = section.find('excerpt', extra_ns)
+                if excerpt_elem is not None:
+                    return ' '.join([t.strip() for t in excerpt_elem.itertext() if t.strip()])
+        return None
     
     result = {}
     
@@ -158,21 +168,34 @@ def parse_xml_to_json(
                 base_path = base_path.rstrip('/').strip()
                 attr = attr.strip()
                 element = safe_find(root, base_path)
+
                 if element is not None and attr in element.attrib:
                     if '.' in field:
-                        parts = field.split('.')
-                        current = result
-                        for part in parts[:-1]:
-                            if part not in current:
-                                current[part] = {}
-                            current = current[part]
-                        current[parts[-1]] = element.attrib[attr]
+                        tag = field.split('.')[0]
+                        tagg = field.split('.')[-1]
+                        if isinstance(element, list):
+                            result[tag] = []
+                            for el in element:
+                                if isinstance(el, ET.Element):
+                                    result[tag].append({str(tagg): el.text.strip() if el.text else None})
+                                else:
+                                    result[tag].append({str(tagg): el})
                     else:
                         result[field] = element.attrib[attr]
             else:
                 element = safe_findall(root, xpath)
                 if element is not None:
                     if '.' in field:
+                        tag = field.split('.')[0]
+                        tagg = field.split('.')[-1]
+                        if isinstance(element, list):
+                            result[tag] = []
+                            for el in element:
+                                if isinstance(el, ET.Element):
+                                    result[tag].append({str(tagg): el.text.strip() if el.text else None})
+                                else:
+                                    result[tag].append({str(tagg): el})
+                        """
                         parts = field.split('.')
                         current = result
                         for part in parts[:-1]:
@@ -180,6 +203,7 @@ def parse_xml_to_json(
                                 current[part] = {}
                             current = current[part]
                         current[parts[-1]] = element.text.strip() if element.text else None
+                        """
                     else:
                         tag = xpath.split('/')[-1]
                         if isinstance(element, list):
@@ -188,6 +212,13 @@ def parse_xml_to_json(
                                 result[field].append({str(tag): el.text.strip() if el.text else None})
                         else:
                             result[field] = element.text.strip() if element.text else None
+            
+            if extra_fields:
+                for field_name, code_value in extra_fields.items():
+                    section_text = extract_section_text(code_value)
+                    if section_text:
+                        result[field_name] = section_text
+    
     
     elif fields:
         for xpath in fields:
@@ -213,6 +244,7 @@ def parse_xml_to_json(
     return result
 
 def convert_csv(
+
     input_file: str,
     output_dir: str,
     skiprows: int = 0,

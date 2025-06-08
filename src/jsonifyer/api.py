@@ -20,6 +20,7 @@ def convert_xml(
     namespaces: Optional[Dict[str, str]] = None,
     root_tag: Optional[str] = None,
     field_map: Optional[Dict[str, str]] = None,
+    extra_fields: Optional[Dict[str, str]] = None,
     **kwargs
 ):
     os.makedirs(directory_path, exist_ok=True)
@@ -43,7 +44,8 @@ def convert_xml(
                 fields=fields,
                 namespaces=namespaces,
                 root_tag=root_tag,
-                field_map=field_map
+                field_map=field_map,
+                extra_fields=extra_fields,
             )
         elif converter == 'xslt':
             if not xslt_path:
