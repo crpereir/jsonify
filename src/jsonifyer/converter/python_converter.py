@@ -88,8 +88,21 @@ def parse_xml_to_json(
             xpath = add_prefix(xpath)
             if not xpath.startswith('.') and not xpath.startswith('/'):
                 xpath = './' + xpath
-            return element.findall(xpath, namespaces)
-        except Exception:
+            lst = element.findall(xpath, namespaces)
+            lst_to_compare = [el.text.strip() for el in lst]
+            if all(txt == lst_to_compare[0] for txt in lst_to_compare):
+                lst = lst[0]
+            else:
+                s = set()
+                lst_to_ret = []
+                for el in lst:
+                    if el.text.strip() not in s:
+                        s.add(el.text.strip())
+                        lst_to_ret.append(el)
+                lst = lst_to_ret
+            return lst
+        except Exception as e:
+            print("BATATOLAS" + str(e))
             return []
     
     def extract_element_data(element):
@@ -157,7 +170,7 @@ def parse_xml_to_json(
                     else:
                         result[field] = element.attrib[attr]
             else:
-                element = safe_find(root, xpath)
+                element = safe_findall(root, xpath)
                 if element is not None:
                     if '.' in field:
                         parts = field.split('.')
@@ -168,7 +181,13 @@ def parse_xml_to_json(
                             current = current[part]
                         current[parts[-1]] = element.text.strip() if element.text else None
                     else:
-                        result[field] = element.text.strip() if element.text else None
+                        tag = xpath.split('/')[-1]
+                        if isinstance(element, list):
+                            result[field] = []
+                            for el in element:
+                                result[field].append({str(tag): el.text.strip() if el.text else None})
+                        else:
+                            result[field] = element.text.strip() if element.text else None
     
     elif fields:
         for xpath in fields:
