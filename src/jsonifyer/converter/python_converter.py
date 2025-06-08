@@ -35,6 +35,7 @@ def parse_xml_to_json(
     namespaces: Optional[Dict[str, str]] = None,
     root_tag: Optional[str] = None,
     extra_fields: Optional[Dict[str, str]] = None,
+    pairs: Optional[Dict[str, str]] = None
 ) -> Dict[str, Any]:
 
     tree = ET.parse(xml_file)
@@ -195,15 +196,6 @@ def parse_xml_to_json(
                                     result[tag].append({str(tagg): el.text.strip() if el.text else None})
                                 else:
                                     result[tag].append({str(tagg): el})
-                        """
-                        parts = field.split('.')
-                        current = result
-                        for part in parts[:-1]:
-                            if part not in current:
-                                current[part] = {}
-                            current = current[part]
-                        current[parts[-1]] = element.text.strip() if element.text else None
-                        """
                     else:
                         tag = xpath.split('/')[-1]
                         if isinstance(element, list):
@@ -218,8 +210,30 @@ def parse_xml_to_json(
                     section_text = extract_section_text(code_value)
                     if section_text:
                         result[field_name] = section_text
-    
-    
+
+            if pairs:
+                tag = list(pairs.keys())[0].split(".")[0]
+                tagg = [pr.split(".")[-1] for pr in list(pairs.keys())]
+                result[tag] = []
+                for xpquery in pairs.values():
+                    generic_elem = root.findall(xpquery[0], extra_ns)
+                    for sub in generic_elem:
+                        dict_to_append = {}
+                        for alpha_i, alpha in enumerate([x[-1] for x in list(pairs.values())]):
+                            if len(alpha.split("/")) == 1:
+                                dict_to_append[tagg[alpha_i]] = ''.join(sub.find(alpha, extra_ns).itertext()).strip() if sub.find(alpha, extra_ns) is not None else None
+                            else:
+                                to_search = alpha.split("/")
+                                dict_to_append[tagg[alpha_i]] = sub.find(to_search[0], extra_ns).attrib.get(to_search[1][1:]) if sub.find(to_search[0], extra_ns) is not None else None
+                        result[tag].append(dict_to_append)
+                s = set()
+                lst_to_ret = []
+                for el in result[tag]:
+                    if el[tagg[0]] not in s:
+                        s.add(el[tagg[0]])
+                        lst_to_ret.append(el)
+                result[tag] = lst_to_ret
+
     elif fields:
         for xpath in fields:
             if '@' in xpath:
