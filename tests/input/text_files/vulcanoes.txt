@@ -1,5 +1,0 @@
-name~location~last_eruption~height~type
-Mount Vesuvius~Italy~1944~1281~Stratovolcano
-Mount Etna~Italy~2023~3326~Stratovolcano
-Krakatoa~Indonesia~2023~813~Caldera
-Mauna Loa~Hawaii~2022~4169~Shield volcano 
