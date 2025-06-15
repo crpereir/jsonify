@@ -1,20 +1,6 @@
 {
-    "id": "test-123-456-789",
     "code_code": "TEST-123",
     "code_codeSystem": "2.16.840.1.113883.6.69",
     "code_displayName": "TABLET",
-    "organization": "Test Pharmaceutical Company",
-    "name": "TestMed",
-    "effectiveTime": "20240315",
-    "ingredient_name": [
-        {
-            "name": "TESTAMIN"
-        },
-        {
-            "name": "LACTOSE"
-        },
-        {
-            "name": "STARCH"
-        }
-    ]
+    "organization": "Test Pharmaceutical Company"
 }

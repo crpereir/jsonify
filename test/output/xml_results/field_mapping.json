@@ -1,6 +1,5 @@
 {
     "id": "test-123-456-789",
-    "title": "Test Medication Label",
-    "manufacturer_id": "987654321",
-    "manufacturer_name": "Test Pharmaceutical Company"
+    "name": "TestMed",
+    "effectiveTime": "20240315"
 }

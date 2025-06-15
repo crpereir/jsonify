@@ -1,14 +1,11 @@
 {
     "id": "test-123-456-789",
-    "title": "Test Medication Label",
+    "code_code": "TEST-123",
+    "code_codeSystem": "2.16.840.1.113883.6.69",
+    "code_displayName": "TABLET",
+    "organization": "Test Pharmaceutical Company",
+    "name": "TestMed",
     "effectiveTime": "20240315",
-    "versionNumber": "1",
-    "manufacturer_id": "987654321",
-    "manufacturer_name": "Test Pharmaceutical Company",
-    "product_code": "TEST-123",
-    "product_name": "TestMed",
-    "product_form": "TABLET",
-    "product_generic_name": "TESTAMIN",
     "ingredient_name": [
         {
             "name": "TESTAMIN"
@@ -19,6 +16,5 @@
         {
             "name": "STARCH"
         }
-    ],
-    "ingredient_quantity": "500"
+    ]
 }
