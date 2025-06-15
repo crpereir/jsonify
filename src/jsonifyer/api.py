@@ -1,5 +1,3 @@
-from .config_loader import ConfigLoader
-from .main import process_file_types
 from typing import Any, Dict, List, Optional, Union
 import json
 import os
@@ -7,7 +5,6 @@ from pathlib import Path
 from .converter.csv_converter import convert_file_to_json as convert_csv_file
 from .converter.python_converter import parse_xml_to_json as convert_xml_python
 from .converter.xslt_converter import apply_xslt_to_xml as convert_xml_xslt
-from .config import get_directory_manager
 
 def convert_xml(
     directory_path: str,
@@ -24,8 +21,11 @@ def convert_xml(
     pairs: Optional[Dict[str, str]] = None,
     **kwargs
 ):
-    os.makedirs(directory_path, exist_ok=True)
+    # Validate input directory exists
+    if not os.path.exists(directory_path):
+        raise FileNotFoundError(f"Input directory not found: {directory_path}")
 
+    # Load previously processed IDs to avoid duplicates
     dumped_ids = set()
     if repeated_path and os.path.exists(repeated_path):
         with open(repeated_path, "r", encoding="utf-8") as f:
@@ -34,10 +34,13 @@ def convert_xml(
     file_count = 0
     new_ids = []
     result = None
+    
+    # Process each XML file in the directory
     for file_name in os.listdir(directory_path):
         if file_name.lower().endswith('.xml'):
             file_path = os.path.join(directory_path, file_name)
 
+            # Convert XML using selected converter
             if converter == 'python':
                 result = convert_xml_python(
                     file_path,
@@ -57,11 +60,12 @@ def convert_xml(
                 raise ValueError(f"Unsupported XML converter: {converter}")
             
             print(result)
+            
+            # Handle duplicate checking if repeated_item is specified
             if repeated_path and repeated_item and result[repeated_item] is not None:
                 unique_attr = result[repeated_item]
-                # Handle case where unique_attr is a list of dictionaries
+                # Extract name from list of dictionaries or single dictionary
                 if isinstance(unique_attr, list) and len(unique_attr) > 0 and isinstance(unique_attr[0], dict):
-                    # Use the first name in the list
                     unique_attr = unique_attr[0].get('name', '')
                 elif isinstance(unique_attr, dict) and 'name' in unique_attr:
                     unique_attr = unique_attr['name']
@@ -69,6 +73,7 @@ def convert_xml(
                 if unique_attr in dumped_ids or unique_attr in new_ids:
                     continue
                 
+            # Save converted JSON if output path is specified
             if output_path:
                 output_dir = Path(output_path)
                 output_dir.mkdir(parents=True, exist_ok=True)
@@ -80,14 +85,13 @@ def convert_xml(
                 if repeated_path:
                     new_ids.append(str(unique_attr))
                 
+    # Update processed IDs file
     if new_ids and repeated_path:
         with open(repeated_path, 'a', encoding='utf-8') as f:
             for new_id in new_ids:
                 f.write(f"{new_id}\n")
 
     return {"message": f"Conversion completed: {file_count} files created in {output_path}"}
-
-
 
 def convert_csv(
     file_path: str,
@@ -98,11 +102,15 @@ def convert_csv(
     delimiter: str = ",",
     skiprows: int = 0,
 ):
+    # Validate input file exists
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Input file not found: {file_path}")
 
+    # Set up output directory
     output_dir = output_path if output_path is not None else os.path.dirname(file_path)
     os.makedirs(output_dir, exist_ok=True)
+    
+    # Convert CSV to JSON
     result_msg = convert_csv_file(
         file_path,
         repeated_path,
@@ -115,8 +123,6 @@ def convert_csv(
     print(result_msg)
     return {"message": result_msg}
 
-
-
 def convert_txt(
     file_path: str,
     repeated_path: str = None,
@@ -126,10 +132,15 @@ def convert_txt(
     delimiter: str = "~",
     skiprows: int = 0
 ):
+    # Validate input file exists
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Input file not found: {file_path}")
+        
+    # Set up output directory
     output_dir = output_path if output_path is not None else os.path.dirname(file_path)
     os.makedirs(output_dir, exist_ok=True)
+    
+    # Convert TXT to JSON using CSV converter with custom delimiter
     result_msg = convert_csv_file(
         file_path,
         repeated_path,

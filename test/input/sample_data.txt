@@ -1,0 +1,4 @@
+Name~Age~City~Occupation~Skills
+John Doe~30~Lisbon~Developer~Python, JavaScript, SQL
+Maria Silva~28~Porto~Designer~UI/UX, Photoshop, Illustrator
+Pedro Santos~35~Braga~Project Manager~Agile, Scrum, Leadership 

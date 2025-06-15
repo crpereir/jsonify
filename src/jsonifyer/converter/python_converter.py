@@ -12,6 +12,8 @@ from .xslt_converter import apply_xslt_to_xml
 logger = logging.getLogger(__name__)
 
 def set_nested_value(d, keys, value):
+    # Handles nested dictionary creation with array support
+    # For keys ending with '[]', creates or appends to arrays
     for k in keys[:-1]:
         if k.endswith('[]'):
             k = k[:-2]
@@ -38,8 +40,11 @@ def parse_xml_to_json(
     pairs: Optional[Dict[str, str]] = None
 ) -> Dict[str, Any]:
 
+    # Parse XML and get root element
     tree = ET.parse(xml_file)
     root = tree.getroot()
+    
+    # Extract default namespace from root tag if present
     default_ns = root.tag.split('}')[0].strip('{') if '}' in root.tag else None
     
     ns_prefix = 'ns'
@@ -48,6 +53,7 @@ def parse_xml_to_json(
         namespaces = {ns_prefix: default_ns}
         
     def add_prefix(xpath):
+        # Adds namespace prefix to XPath expressions when default namespace is present
         if default_ns:
             parts = xpath.split('/')
             new_parts = []
@@ -62,6 +68,7 @@ def parse_xml_to_json(
             return '/'.join(new_parts)
         return xpath
     
+    # Handle custom root tag if specified
     if root_tag:
         root_local = root.tag.split('}')[-1] if '}' in root.tag else root.tag
         if root_local.strip().lower() != root_tag.strip().lower():
@@ -73,6 +80,7 @@ def parse_xml_to_json(
                 return {}
     
     def safe_find(element, xpath):
+        # Safely find elements using XPath with namespace support
         try:
             xpath = add_prefix(xpath)
             if not xpath.startswith('.') and not xpath.startswith('/'):
@@ -83,15 +91,18 @@ def parse_xml_to_json(
             return None
     
     def safe_findall(element, xpath):
+        # Find all matching elements and handle duplicates
         try:
             xpath = add_prefix(xpath)
             if not xpath.startswith('.') and not xpath.startswith('/'):
                 xpath = './' + xpath
             lst = element.findall(xpath, namespaces)
+            # If all elements have same text, return single element
             lst_to_compare = [el.text.strip() for el in lst]
             if all(txt == lst_to_compare[0] for txt in lst_to_compare):
                 lst = lst[0]
             else:
+                # Remove duplicates while preserving order
                 s = set()
                 lst_to_ret = []
                 for el in lst:
@@ -105,17 +116,21 @@ def parse_xml_to_json(
             return []
     
     def extract_element_data(element):
+        # Recursively extract data from XML element including attributes and nested elements
         if element is None:
             return None
             
         result = {}
         
+        # Extract attributes
         for key, value in element.attrib.items():
             result[key] = value
             
+        # Extract text content if present
         if element.text and element.text.strip():
             result['text'] = element.text.strip()
             
+        # Process child elements
         for child in element:
             child_data = extract_element_data(child)
             if child_data:
@@ -130,6 +145,7 @@ def parse_xml_to_json(
         return result
 
     def extract_section_text(code_value):
+        # Extract text content from specific section by code value
         for section in root.findall('.//section', extra_ns):
             code = section.find('code', extra_ns)
             if code is not None and code.attrib.get('code') == code_value:
@@ -143,9 +159,11 @@ def parse_xml_to_json(
     
     result = {}
     
+    # Process field mappings if provided
     if field_map:
         for field, xpath in field_map.items():
             if isinstance(xpath, list):
+                # Handle multiple XPath expressions for a single field
                 values = []
                 for path in xpath:
                     elements = safe_findall(root, path)
@@ -155,6 +173,7 @@ def parse_xml_to_json(
                 
                 if values:
                     if '.' in field:
+                        # Handle nested field structure
                         parts = field.split('.')
                         current = result
                         for part in parts[:-1]:
@@ -165,6 +184,7 @@ def parse_xml_to_json(
                     else:
                         result[field] = values
             elif '@' in xpath:
+                # Handle attribute extraction
                 base_path, attr = xpath.rsplit('@', 1)
                 base_path = base_path.rstrip('/').strip()
                 attr = attr.strip()
@@ -184,6 +204,7 @@ def parse_xml_to_json(
                     else:
                         result[field] = element.attrib[attr]
             else:
+                # Handle regular element extraction
                 element = safe_findall(root, xpath)
                 if element is not None:
                     if '.' in field:
@@ -205,12 +226,14 @@ def parse_xml_to_json(
                         else:
                             result[field] = element.text.strip() if element.text else None
             
+            # Process extra fields if specified
             if extra_fields:
                 for field_name, code_value in extra_fields.items():
                     section_text = extract_section_text(code_value)
                     if section_text:
                         result[field_name] = section_text
 
+            # Process paired fields if specified
             if pairs:
                 tag = list(pairs.keys())[0].split(".")[0]
                 tagg = [pr.split(".")[-1] for pr in list(pairs.keys())]
@@ -226,6 +249,7 @@ def parse_xml_to_json(
                                 to_search = alpha.split("/")
                                 dict_to_append[tagg[alpha_i]] = sub.find(to_search[0], extra_ns).attrib.get(to_search[1][1:]) if sub.find(to_search[0], extra_ns) is not None else None
                         result[tag].append(dict_to_append)
+                # Remove duplicates while preserving order
                 s = set()
                 lst_to_ret = []
                 for el in result[tag]:
@@ -235,6 +259,7 @@ def parse_xml_to_json(
                 result[tag] = lst_to_ret
 
     elif fields:
+        # Process simple field list if no field map provided
         for xpath in fields:
             if '@' in xpath:
                 base_path, attr = xpath.rsplit('@', 1)
@@ -253,18 +278,18 @@ def parse_xml_to_json(
                         result[tag] = element.text.strip() if element.text else None
     
     else:
+        # If no field specifications, extract all data
         result = extract_element_data(root)
     
     return result
 
 def convert_csv(
-
     input_file: str,
     output_dir: str,
     skiprows: int = 0,
     field_map: Optional[Dict[str, int]] = None
 ) -> List[str]:
-
+    # Create output directory if it doesn't exist
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
     
@@ -273,24 +298,28 @@ def convert_csv(
     with open(input_file, 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
         
+        # Skip header rows if specified
         for _ in range(skiprows):
             next(reader)
         
+        # Process each row
         for i, row in enumerate(reader):
-            if not row or not any(row):  
+            if not row or not any(row):  # Skip empty rows
                 continue
                 
             record = {}
             if field_map:
+                # Map fields according to provided mapping
                 for field_name, col_idx in field_map.items():
                     if col_idx < len(row):
                         value = row[col_idx].strip()
-                        if value:  
+                        if value:  # Only include non-empty values
                             record[field_name] = value
             else:
+                # Use default column names if no mapping provided
                 record = {f"column_{i}": value.strip() for i, value in enumerate(row) if value.strip()}
             
-            if record and len(record) > 1:  
+            if record and len(record) > 1:  # Only create file if record has multiple fields
                 output_file = output_path / f"record_{i+1}.json"
                 with open(output_file, 'w', encoding='utf-8') as out_f:
                     json.dump(record, out_f, indent=4, ensure_ascii=False)
@@ -299,9 +328,8 @@ def convert_csv(
     print(f"Created {len(created_files)} JSON files in {output_dir}")
     return created_files
 
-
-
 def check_null_fields(json_data: Dict) -> List[str]:
+    # Recursively check for null values in JSON structure
     null_fields = []
     
     def recursive_check(data: Any, parent_key: str = "") -> None:
@@ -318,10 +346,9 @@ def check_null_fields(json_data: Dict) -> List[str]:
     recursive_check(json_data)
     return null_fields
 
-
-
 class PythonConverter:
     def convert_xml_structured(self, input_file: str, output_dir: str, field_map: Dict[str, str], namespaces: Optional[Dict[str, str]] = None) -> None:
+        # Convert XML to JSON and save to file
         result = parse_xml_to_json(input_file, field_map=field_map, namespaces=namespaces)
         os.makedirs(output_dir, exist_ok=True)
         output_file = os.path.join(output_dir, os.path.splitext(os.path.basename(input_file))[0] + '.json')
